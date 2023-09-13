@@ -43,6 +43,7 @@
 
 #include "mcc_generated_files/mcc.h"
 
+//Flag pour le timer
 uint8_t flag_timer_1s = 0;
 uint8_t Etat = 0;
 
