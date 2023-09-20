@@ -45,7 +45,10 @@
 
 //Flag pour le timer
 uint8_t flag_timer_1s = 0;
-uint8_t Etat = 0;
+int Etat = 0;
+int noeud = 0;
+int Protection = 0;
+int Systeme = 0;
 
 void timer_1s(void) {
     flag_timer_1s = 1;
@@ -90,67 +93,109 @@ void main(void) {
     EUSART1_Write(0xFE);
     EUSART1_Write(0x51);
     EUSART1_Write(0xFE);
-    EUSART1_Write(0x45);
-    EUSART1_Write(0x00);
-    printf("CAN RECEIVER");
+    EUSART1_Write(0x46);
+    //    printf("CAN RECEIVER");
     __delay_ms(1000);
 
     while (1) {
+        //        EUSART1_Write(0xFE);
+        //        EUSART1_Write(0x45);
+        //        EUSART1_Write(0x00); //ligne 1
+        //        printf("Etat: %d", Etat);
+        //        EUSART1_Write(0xFE);
+        //        EUSART1_Write(0x45);
+        //        EUSART1_Write(0x40);
+        //        printf("Mode: %d", Protection);
+        //        EUSART1_Write(0xFE);
+        //        EUSART1_Write(0x45);
+        //        EUSART1_Write(0x54);
+        //        printf("Systeme: %d", Systeme);
 
-        //etat de l'onduleur
-        if (IO_RA0_GetValue() == 1) {//off
-            IO_RC3_SetLow(); //indicateur led
-            IO_RC2_SetHigh();
-        } else {//on
-            IO_RC2_SetLow(); //indicateur led
-            IO_RC3_SetHigh();
+        if (noeud == 3) {//empêche le bouton de changer l'état de l'interface ou en mode protection  
+            //etat de l'onduleur
+            if (IO_RA0_GetValue() == 1) {//off
+                EUSART1_Write(0xFE);
+                EUSART1_Write(0x45);
+                EUSART1_Write(0x00); //ligne 1
+                printf("Etat: OFF");
+                IO_RC3_SetLow();
+                IO_RC2_SetHigh();
+                Etat = 0;
+                txCan.frame.data0 = 0x00;
 
+            } else {//on
+                EUSART1_Write(0xFE);
+                EUSART1_Write(0x45);
+                EUSART1_Write(0x00); //ligne 1
+                printf("Etat: ON ");
+                IO_RC2_SetLow();
+                IO_RC3_SetHigh();
+                txCan.frame.data0 = 0xFF;
+                Etat = 1;
+            }
         }
-        
+
         //Envoyer l'état de l'ondulaire
         if (flag_timer_1s == 1) {
-            txCan.frame.data0 = IO_RA0_GetValue();
             CAN_transmit(&txCan);
             flag_timer_1s = 0;
         }
         //recevoir commande et messsage des autres noeuds
         if (CAN_receive(&rxCan) >= 1) {
 
-            if (rxCan.frame.id == 0x100) {//Protection
-                if (rxCan.frame.data0 == 0xFF) {//protection
-
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x00);
-                    printf("Mode: Protection");
-                } else if (rxCan.frame.data0 == 0x00) {//non-protection
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x00);
-                    printf("Mode: Normal");
-                }
-
-            } else if (rxCan.frame.id == 0x120) {//Interface
-                if (rxCan.frame.data0 == 0xFF) {//etat off
+            if (rxCan.frame.id == 0x100) {//Protection 1
+                if (rxCan.frame.data0 != 0x00) {//protection
                     EUSART1_Write(0xFE);
                     EUSART1_Write(0x45);
                     EUSART1_Write(0x40);
-                    printf("Etat: ON");
-                } else if (rxCan.frame.data0 == 0x00) {//etat on
+                    printf("Protection: ON ");
+                } else {//non-protection
                     EUSART1_Write(0xFE);
                     EUSART1_Write(0x45);
                     EUSART1_Write(0x40);
-                    printf("Etat: OFF");
+                    printf("Protection: OFF");
+                    noeud = 1;
                 }
-                
-            } else if (rxCan.frame.id == 0x180) {//Batterie
+
+            } else if (rxCan.frame.id == 0x120) {//Interface 3
+                if (noeud == 2) {
+                    if (rxCan.frame.data0 == 0xFF) {//etat OFF
+                        EUSART1_Write(0xFE);
+                        EUSART1_Write(0x45);
+                        EUSART1_Write(0x54);
+                        printf("Systeme: OFF");
+                    } else if (rxCan.frame.data0 == 0x00) {//etat ON
+                        EUSART1_Write(0xFE);
+                        EUSART1_Write(0x45);
+                        EUSART1_Write(0x54);
+                        printf("Systeme: ON ");
+                        noeud = 3;
+                    }
+                }
+            } else if (rxCan.frame.id == 0x180) {//Batterie 2
                 uint8_t batterie = rxCan.frame.data0;
+
                 EUSART1_Write(0xFE);
                 EUSART1_Write(0x45);
                 EUSART1_Write(0x14);
-                printf("Batterie: %d%", batterie);
+                printf("Batterie: %d ", batterie);
+                if (noeud == 1) {
+                    if (batterie <= 2) {
+                        EUSART1_Write(0xFE);
+                        EUSART1_Write(0x45);
+                        EUSART1_Write(0x00); //ligne 1
+                        printf("Etat: OFF");
+                    } else {
+                        EUSART1_Write(0xFE);
+                        EUSART1_Write(0x45);
+                        EUSART1_Write(0x00); //ligne 1
+                        printf("Etat: ON ");
+                        noeud = 2;
+                    }
+                }
             }
         }
+
     }
 }
 /**

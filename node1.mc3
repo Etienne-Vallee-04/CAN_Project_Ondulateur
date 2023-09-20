@@ -12035,27 +12035,7 @@
          <value>4194.30400</value>
       </entry>
    </tokenMap>
-   <generatedFileHashHistoryMap class="java.util.HashMap">
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>0eeda2849dfe716171e86b7181b99c68c9c19c236c213d3a4ba2c963f8a38f92</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>ba335cc5b4dd5fbd5ea24cb75950c82d242c927d78d55820e1c193408435cb8c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\device_config.h</file>
-         <hash>3a1e9224e7c75cbf0235da45f9dbecad261dde566eb4b27ef7275d7ab9a2347d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\tmr1.h</file>
-         <hash>8c0337313542e39857e21381d0a08d28430583190e5e9a27b85a292b723b492a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\eusart1.h</file>
-         <hash>3d5e64e3a131edd2153b29aaa0e1d510e8a9ccd3bc6d40df22d23e9cf843c666</hash>
-      </entry>
+   <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
          <file>main.c</file>
          <hash>107dad27b18ca80eba3b16c07fbf29bee835f3b386571a474f2ae03224deb68a</hash>
@@ -12063,6 +12043,46 @@
       <entry>
          <file>mcc_generated_files\device_config.c</file>
          <hash>6081aecbd41197daa83fd45602c6576f98e02856df0de6244c98a5327766e12c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\device_config.h</file>
+         <hash>3a1e9224e7c75cbf0235da45f9dbecad261dde566eb4b27ef7275d7ab9a2347d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\ecan.c</file>
+         <hash>57791ecf9693ffad53d842c0db36ef0907f9d890a663fced38d76e97f68f0324</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\ecan.h</file>
+         <hash>fec19725942a5759de970555d015546e93d75a2c20951cf373c75850743019c8</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\eusart1.c</file>
+         <hash>af05e6245a6e7b7dbbdf37a121210e36388d7f3d02f18944a702b359b2abc93b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\eusart1.h</file>
+         <hash>3d5e64e3a131edd2153b29aaa0e1d510e8a9ccd3bc6d40df22d23e9cf843c666</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>a3c6f518b268246f956d10d1abb1f47e34de5c031ae8cf89b04616254cda86d1</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>0eeda2849dfe716171e86b7181b99c68c9c19c236c213d3a4ba2c963f8a38f92</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>4ffc57a03c93c42157fbb106bd328364df6a5a2d4749ec2a867cab2e88fce69d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>ba335cc5b4dd5fbd5ea24cb75950c82d242c927d78d55820e1c193408435cb8c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\pin_manager.c</file>
+         <hash>cdb0ff24f50cf790bd1f948fb27116e1cc6d3957c0fbda93c3395c928ad0045a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
@@ -12073,28 +12093,8 @@
          <hash>6f139638d35e4015d97f720a919d61dcfe1bfc4c9538c99f79ac9b95dbd14a90</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.c</file>
-         <hash>cdb0ff24f50cf790bd1f948fb27116e1cc6d3957c0fbda93c3395c928ad0045a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\ecan.c</file>
-         <hash>57791ecf9693ffad53d842c0db36ef0907f9d890a663fced38d76e97f68f0324</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>a3c6f518b268246f956d10d1abb1f47e34de5c031ae8cf89b04616254cda86d1</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>4ffc57a03c93c42157fbb106bd328364df6a5a2d4749ec2a867cab2e88fce69d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\ecan.h</file>
-         <hash>fec19725942a5759de970555d015546e93d75a2c20951cf373c75850743019c8</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\eusart1.c</file>
-         <hash>af05e6245a6e7b7dbbdf37a121210e36388d7f3d02f18944a702b359b2abc93b</hash>
+         <file>mcc_generated_files\tmr1.h</file>
+         <hash>8c0337313542e39857e21381d0a08d28430583190e5e9a27b85a292b723b492a</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>
