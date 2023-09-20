@@ -3,17 +3,13 @@
 [d edition pro ]
 [d chip 18F25K80 ]
 [d frameptr 4065 ]
-"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-"133 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-[v _pad pad `(v  1 s 1 pad ]
-"443
-[v _dtoa dtoa `(v  1 s 1 dtoa ]
-"1007
+"56 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+[e E12602 etat `uc
+OffSwitch 0
+On 1
+Off 2
+]
+"1007 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1520
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
@@ -47,9 +43,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"53 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"57 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _timer_1s timer_1s `(v  1 e 1 0 ]
-"57
+"61
 [v _main main `(v  1 e 1 0 ]
 "63 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _WakeUpDefaultInterruptHandler WakeUpDefaultInterruptHandler `(v  1 s 1 WakeUpDefaultInterruptHandler ]
@@ -508,7 +504,7 @@
 [v _PIR5bits PIR5bits `VES320  1 e 1 @3959 ]
 "29753
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3965 ]
-[s S1608 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1653 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -518,21 +514,21 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "29883
-[s S1617 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S1662 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :4:1 
 `uc 1 LVDIN 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S1623 . 1 `S1608 1 . 1 0 `S1617 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES1623  1 e 1 @3968 ]
+[u S1668 . 1 `S1653 1 . 1 0 `S1662 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1668  1 e 1 @3968 ]
 "30225
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "30327
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "30439
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-[s S1642 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1612 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -542,7 +538,7 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "30466
-[s S1651 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1621 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -551,8 +547,8 @@
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1660 . 1 `S1642 1 . 1 0 `S1651 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1660  1 e 1 @3979 ]
+[u S1630 . 1 `S1612 1 . 1 0 `S1621 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1630  1 e 1 @3979 ]
 "30645
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "30702
@@ -845,14 +841,18 @@
 [v _width width `i  1 s 2 width ]
 "100
 [v _flags flags `uc  1 s 1 flags ]
-"125
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "47 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _flag_timer_1s flag_timer_1s `uc  1 e 1 0 ]
 "48
-[v _Etat Etat `i  1 e 2 0 ]
+[v _Switch Switch `i  1 e 2 0 ]
 "49
-[v _noeud noeud `i  1 e 2 0 ]
+[v _Protection Protection `i  1 e 2 0 ]
+"50
+[v _Systeme Systeme `i  1 e 2 0 ]
+"51
+[v _Batterie Batterie `i  1 e 2 0 ]
+"56
+[v _etat etat `i  1 e 2 0 ]
 "54 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _WakeUpInterruptHandler WakeUpInterruptHandler `*.37(v  1 s 2 WakeUpInterruptHandler ]
 [s S1286 . 1 `uc 1 perr 1 0 :1:0 
@@ -873,106 +873,56 @@
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"57 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"61 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"182
-[v main@batterie batterie `uc  1 a 1 16 ]
+"111
+[v main@batterie batterie `uc  1 a 1 0 ]
 [s S536 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
-"81
+"75
 [u S548 . 14 `S536 1 frame 14 0 `[14]uc 1 array 14 0 ]
-[v main@rxCan rxCan `S548  1 a 14 31 ]
-"80
-[v main@txCan txCan `S548  1 a 14 17 ]
-"204
+[v main@rxCan rxCan `S548  1 a 14 15 ]
+"74
+[v main@txCan txCan `S548  1 a 14 1 ]
+"175
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "8
-[v printf@ap ap `[1]*.39v  1 a 2 12 ]
+[v printf@ap ap `[1]*.39v  1 a 2 31 ]
 "5
-[v printf@fmt fmt `*.25Cuc  1 p 2 8 ]
+[v printf@fmt fmt `*.25Cuc  1 p 2 29 ]
 "13
 } 0
 "1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1523
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 6 ]
-[s S2241 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 27 ]
+[s S2233 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.2S2241  1 p 2 0 ]
-[v vfprintf@fmt fmt `*.25Cuc  1 p 2 2 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 4 ]
+[v vfprintf@fp fp `*.2S2233  1 p 2 21 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 23 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 25 ]
 "1543
 } 0
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2259 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
-"1016
-[v vfpfcnvrt@convarg convarg `S2259  1 a 8 76 ]
-"1009
-[v vfpfcnvrt@cp cp `*.25uc  1 a 2 84 ]
-[s S2241 _IO_FILE 0 ]
-"1007
-[v vfpfcnvrt@fp fp `*.2S2241  1 p 2 68 ]
-[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 70 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 72 ]
+[s S2233 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.2S2233  1 p 2 15 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 17 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 19 ]
 "1517
-} 0
-"443
-[v _dtoa dtoa `(v  1 s 1 dtoa ]
-{
-"447
-[v dtoa@n n `o  1 a 8 57 ]
-"446
-[v dtoa@i i `i  1 a 2 66 ]
-[v dtoa@w w `i  1 a 2 55 ]
-[v dtoa@p p `i  1 a 2 53 ]
-"445
-[v dtoa@s s `uc  1 a 1 65 ]
-[s S2241 _IO_FILE 0 ]
-"443
-[v dtoa@fp fp `*.2S2241  1 p 2 33 ]
-[v dtoa@d d `o  1 p 8 35 ]
-"502
-} 0
-"133
-[v _pad pad `(v  1 s 1 pad ]
-{
-"135
-[v pad@w w `i  1 a 2 31 ]
-[v pad@i i `i  1 a 2 29 ]
-[s S2241 _IO_FILE 0 ]
-"133
-[v pad@fp fp `*.2S2241  1 p 2 22 ]
-[v pad@buf buf `*.39uc  1 p 2 24 ]
-[v pad@p p `i  1 p 2 26 ]
-"164
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-"11
-[v fputs@i i `i  1 a 2 20 ]
-"10
-[v fputs@c c `uc  1 a 1 19 ]
-"8
-[v fputs@s s `*.39Cuc  1 p 2 15 ]
-[u S2219 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2222 _IO_FILE 11 `S2219 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.2S2222  1 p 2 17 ]
-"19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 6 ]
-[u S2219 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2222 _IO_FILE 11 `S2219 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.2S2222  1 p 2 8 ]
+[u S2211 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2214 _IO_FILE 11 `S2211 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S2214  1 p 2 8 ]
 "24
 } 0
 "146 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/eusart1.c
@@ -991,36 +941,6 @@
 [v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART1_Write@txData txData `uc  1 a 1 4 ]
 "139
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 22 ]
-"4
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-{
-"12
-[v ___aomod@sign sign `uc  1 a 1 21 ]
-[v ___aomod@counter counter `uc  1 a 1 20 ]
-"9
-[v ___aomod@dividend dividend `o  1 p 8 4 ]
-[v ___aomod@divisor divisor `o  1 p 8 12 ]
-"36
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-{
-"12
-[v ___aodiv@quotient quotient `o  1 a 8 22 ]
-"13
-[v ___aodiv@sign sign `uc  1 a 1 21 ]
-[v ___aodiv@counter counter `uc  1 a 1 20 ]
-"9
-[v ___aodiv@dividend dividend `o  1 p 8 4 ]
-[v ___aodiv@divisor divisor `o  1 p 8 12 ]
-"43
 } 0
 "50 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -1192,10 +1112,10 @@
 {
 "192
 } 0
-"53 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"57 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _timer_1s timer_1s `(v  1 e 1 0 ]
 {
-"55
+"59
 } 0
 "444 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _ECAN_WAKI_ISR ECAN_WAKI_ISR `(v  1 e 1 0 ]

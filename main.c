@@ -45,11 +45,15 @@
 
 //Flag pour le timer
 uint8_t flag_timer_1s = 0;
-int Etat = 0;
-int noeud = 0;
+int Switch = 0;
 int Protection = 0;
 int Systeme = 0;
+int Batterie = 0;
 
+enum etat {
+    OffSwitch, On, Off
+};
+int etat = Off;
 void timer_1s(void) {
     flag_timer_1s = 1;
 }
@@ -58,22 +62,12 @@ void main(void) {
     // Initialize the device
     SYSTEM_Initialize();
 
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
-    // Use the following macros to:
-
     TMR1_SetInterruptHandler(timer_1s);
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
 
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
 
     RXB0CON = 0x60; // Accept all messages
 
@@ -96,112 +90,90 @@ void main(void) {
     EUSART1_Write(0x46);
     printf("CAN RECEIVER");
     __delay_ms(1000);
-    while (CAN_receive(&rxCan) == 0) {//attends de recevoir une trame avant de commencer le reste du programme
-
-    }
-        EUSART1_Write(0xFE);//affiche les informations au début avant de recevoir les données
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x00);
-        printf("Etat: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x40);
-        printf("Mode: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x54);
-        printf("Systeme: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x14);
-        printf("Batterie: ");
 
     while (1) {
 
-        if (noeud == 3) {//empêche le bouton de changer l'état de l'interface ou en mode protection  
-            //etat de l'onduleur
-            if (IO_RA0_GetValue() == 1) {//off
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x00); //ligne 1
-                printf("Etat: OFF");
-                IO_RC3_SetLow();
-                IO_RC2_SetHigh();
-                Etat = 0;
-                txCan.frame.data0 = 0x00;
-            } else {//on
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x00); //ligne 1
-                printf("Etat: ON ");
-                IO_RC2_SetLow();
-                IO_RC3_SetHigh();
-                txCan.frame.data0 = 0xFF;
-                Etat = 1;
-            }
-        }
-
-        //Envoyer l'état de l'ondulaire
-        if (flag_timer_1s == 1) {
-            CAN_transmit(&txCan);
-            flag_timer_1s = 0;
-        }
         //recevoir commande et messsage des autres noeuds
         if (CAN_receive(&rxCan) >= 1) {
-
-            if (rxCan.frame.id == 0x100) {//Protection 1
+            if (rxCan.frame.id == 0x100) {//Protection donnée
                 if (rxCan.frame.data0 != 0x00) {//protection
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x40);
-                    printf("Protection: ON ");
+                    Protection = 1;
                 } else {//non-protection
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x40);
-                    printf("Protection: OFF");
-                    noeud = 1;
+                    Protection = 0;
                 }
-
-            } else if (rxCan.frame.id == 0x120) {//Interface 3
-                if (noeud == 2) {
-                    if (rxCan.frame.data0 == 0xFF) {//etat OFF
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x54);
-                        printf("Systeme: OFF");
-                    } else if (rxCan.frame.data0 == 0x00) {//etat ON
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x54);
-                        printf("Systeme: ON ");
-                        noeud = 3;
-                    }
+            } else if (rxCan.frame.id == 0x120) {//Interface donnée
+                if (rxCan.frame.data0 != 0x00) {//alimenter
+                    Systeme = 1;
+                } else {//non-alimenter
+                    Systeme = 0;
                 }
-            } else if (rxCan.frame.id == 0x180) {//Batterie 2
+            } else if (rxCan.frame.id == 0x180) {//Batterie donnée
                 uint8_t batterie = rxCan.frame.data0;
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x14);
-                printf("Batterie: %d ", batterie);
-                if (noeud == 1) {
-                    if (batterie <= 2) {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x00); //ligne 1
-                        printf("Etat: OFF");
-                    } else {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x00); //ligne 1
-                        printf("Etat: ON ");
-                        noeud = 2;
-                    }
+                if (batterie <= 2) {
+                    Batterie = 0;
+                } else {
+                    Batterie = 1;
                 }
             }
+        }
+        //Envoyer l'état de l'ondulaire
+
+        switch (etat) {
+            case On:
+                IO_RC2_SetLow(); //led verte allumée
+                IO_RC3_SetHigh();
+                if (flag_timer_1s == 1) {
+                    txCan.frame.data0 = 0xFF; //ON
+                    CAN_transmit(&txCan);
+                    flag_timer_1s = 0;
+                }
+                //etat de l'onduleur sur la switch
+                if (IO_RA0_GetValue() == 1) {//off
+                    Switch = 0; //état of
+                } else {//on
+                    Switch = 1; //etat on
+                }
+                //conditions de changement d'état
+                if (Protection == 1 || Systeme == 0 || Batterie == 0) {//Off par les noeud
+                    etat = Off;
+                } else if (Switch == 0) {// off par la switch
+                    etat = OffSwitch;
+                }
+                break;
+
+            case Off://sans impact de la switch
+                IO_RC2_SetHigh(); //led rouge allumée
+                IO_RC3_SetLow();
+                //conditions de changement d'état
+                if (Protection == 0 && Systeme == 1 && Batterie == 1) {//Off par les noeud
+                    if (Switch == 1) {
+                        etat = On;
+                    } else {
+                        etat = OffSwitch;
+                    }
+                }
+                break;
+            case OffSwitch://impact de la switch
+                IO_RC2_SetHigh(); //led rouge allumée
+                IO_RC3_SetLow();
+                //envoie de l'état
+                if (flag_timer_1s == 1) {
+                    txCan.frame.data0 = 0x00; //OFF
+                    CAN_transmit(&txCan);
+                    flag_timer_1s = 0;
+                }
+                //conditions de changement d'état
+                if (Protection == 1 || Systeme == 0 || Batterie == 0) {//Off par les noeud
+                    etat = Off;
+                } else if (Switch == 1) {// off par la switch
+                    etat = On;
+                }
+
+                break;
         }
     }
 }
 /**
  End of File
  */
+//if (rxCan.frame.data0 != 0x00) {//protection

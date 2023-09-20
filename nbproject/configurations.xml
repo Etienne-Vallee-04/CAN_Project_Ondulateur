@@ -35,6 +35,7 @@
         <itemPath>mcc_generated_files/eusart1.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>newfile.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

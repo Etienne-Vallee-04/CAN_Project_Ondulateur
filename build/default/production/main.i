@@ -20415,11 +20415,15 @@ void OSCILLATOR_Initialize(void);
 
 
 uint8_t flag_timer_1s = 0;
-int Etat = 0;
-int noeud = 0;
+int Switch = 0;
 int Protection = 0;
 int Systeme = 0;
+int Batterie = 0;
 
+enum etat {
+    OffSwitch, On, Off
+};
+int etat = Off;
 void timer_1s(void) {
     flag_timer_1s = 1;
 }
@@ -20428,22 +20432,12 @@ void main(void) {
 
     SYSTEM_Initialize();
 
-
-
-
-
     TMR1_SetInterruptHandler(timer_1s);
 
     (INTCONbits.GIE = 1);
 
 
-
-
-
     (INTCONbits.PEIE = 1);
-
-
-
 
     RXB0CON = 0x60;
 
@@ -20466,109 +20460,86 @@ void main(void) {
     EUSART1_Write(0x46);
     printf("CAN RECEIVER");
     _delay((unsigned long)((1000)*(20000000/4000.0)));
-    while (CAN_receive(&rxCan) == 0) {
-
-    }
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x00);
-        printf("Etat: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x40);
-        printf("Mode: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x54);
-        printf("Systeme: ");
-        EUSART1_Write(0xFE);
-        EUSART1_Write(0x45);
-        EUSART1_Write(0x14);
-        printf("Batterie: ");
 
     while (1) {
 
-        if (noeud == 3) {
-
-            if (PORTAbits.RA0 == 1) {
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x00);
-                printf("Etat: OFF");
-                do { LATCbits.LATC3 = 0; } while(0);
-                do { LATCbits.LATC2 = 1; } while(0);
-                Etat = 0;
-                txCan.frame.data0 = 0x00;
-            } else {
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x00);
-                printf("Etat: ON ");
-                do { LATCbits.LATC2 = 0; } while(0);
-                do { LATCbits.LATC3 = 1; } while(0);
-                txCan.frame.data0 = 0xFF;
-                Etat = 1;
-            }
-        }
-
-
-        if (flag_timer_1s == 1) {
-            CAN_transmit(&txCan);
-            flag_timer_1s = 0;
-        }
 
         if (CAN_receive(&rxCan) >= 1) {
-
             if (rxCan.frame.id == 0x100) {
                 if (rxCan.frame.data0 != 0x00) {
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x40);
-                    printf("Protection: ON ");
+                    Protection = 1;
                 } else {
-                    EUSART1_Write(0xFE);
-                    EUSART1_Write(0x45);
-                    EUSART1_Write(0x40);
-                    printf("Protection: OFF");
-                    noeud = 1;
+                    Protection = 0;
                 }
-
             } else if (rxCan.frame.id == 0x120) {
-                if (noeud == 2) {
-                    if (rxCan.frame.data0 == 0xFF) {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x54);
-                        printf("Systeme: OFF");
-                    } else if (rxCan.frame.data0 == 0x00) {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x54);
-                        printf("Systeme: ON ");
-                        noeud = 3;
-                    }
+                if (rxCan.frame.data0 != 0x00) {
+                    Systeme = 1;
+                } else {
+                    Systeme = 0;
                 }
             } else if (rxCan.frame.id == 0x180) {
                 uint8_t batterie = rxCan.frame.data0;
-                EUSART1_Write(0xFE);
-                EUSART1_Write(0x45);
-                EUSART1_Write(0x14);
-                printf("Batterie: %d ", batterie);
-                if (noeud == 1) {
-                    if (batterie <= 2) {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x00);
-                        printf("Etat: OFF");
-                    } else {
-                        EUSART1_Write(0xFE);
-                        EUSART1_Write(0x45);
-                        EUSART1_Write(0x00);
-                        printf("Etat: ON ");
-                        noeud = 2;
-                    }
+                if (batterie <= 2) {
+                    Batterie = 0;
+                } else {
+                    Batterie = 1;
                 }
             }
+        }
+
+
+        switch (etat) {
+            case On:
+                do { LATCbits.LATC2 = 0; } while(0);
+                do { LATCbits.LATC3 = 1; } while(0);
+                if (flag_timer_1s == 1) {
+                    txCan.frame.data0 = 0xFF;
+                    CAN_transmit(&txCan);
+                    flag_timer_1s = 0;
+                }
+
+                if (PORTAbits.RA0 == 1) {
+                    Switch = 0;
+                } else {
+                    Switch = 1;
+                }
+
+                if (Protection == 1 || Systeme == 0 || Batterie == 0) {
+                    etat = Off;
+                } else if (Switch == 0) {
+                    etat = OffSwitch;
+                }
+                break;
+
+            case Off:
+                do { LATCbits.LATC2 = 1; } while(0);
+                do { LATCbits.LATC3 = 0; } while(0);
+
+                if (Protection == 0 && Systeme == 1 && Batterie == 1) {
+                    if (Switch == 1) {
+                        etat = On;
+                    } else {
+                        etat = OffSwitch;
+                    }
+                }
+                break;
+            case OffSwitch:
+                do { LATCbits.LATC2 = 1; } while(0);
+                do { LATCbits.LATC3 = 0; } while(0);
+
+                if (flag_timer_1s == 1) {
+                    txCan.frame.data0 = 0x00;
+                    CAN_transmit(&txCan);
+                    flag_timer_1s = 0;
+                }
+
+                if (Protection == 1 || Systeme == 0 || Batterie == 0) {
+                    etat = Off;
+                } else if (Switch == 1) {
+                    etat = On;
+                }
+
+                break;
         }
     }
 }
