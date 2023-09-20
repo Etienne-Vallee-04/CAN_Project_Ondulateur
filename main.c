@@ -94,22 +94,29 @@ void main(void) {
     EUSART1_Write(0x51);
     EUSART1_Write(0xFE);
     EUSART1_Write(0x46);
-    //    printf("CAN RECEIVER");
+    printf("CAN RECEIVER");
     __delay_ms(1000);
+    while (CAN_receive(&rxCan) == 0) {//attends de recevoir une trame avant de commencer le reste du programme
+
+    }
+        EUSART1_Write(0xFE);//affiche les informations au début avant de recevoir les données
+        EUSART1_Write(0x45);
+        EUSART1_Write(0x00);
+        printf("Etat: ");
+        EUSART1_Write(0xFE);
+        EUSART1_Write(0x45);
+        EUSART1_Write(0x40);
+        printf("Mode: ");
+        EUSART1_Write(0xFE);
+        EUSART1_Write(0x45);
+        EUSART1_Write(0x54);
+        printf("Systeme: ");
+        EUSART1_Write(0xFE);
+        EUSART1_Write(0x45);
+        EUSART1_Write(0x14);
+        printf("Batterie: ");
 
     while (1) {
-        //        EUSART1_Write(0xFE);
-        //        EUSART1_Write(0x45);
-        //        EUSART1_Write(0x00); //ligne 1
-        //        printf("Etat: %d", Etat);
-        //        EUSART1_Write(0xFE);
-        //        EUSART1_Write(0x45);
-        //        EUSART1_Write(0x40);
-        //        printf("Mode: %d", Protection);
-        //        EUSART1_Write(0xFE);
-        //        EUSART1_Write(0x45);
-        //        EUSART1_Write(0x54);
-        //        printf("Systeme: %d", Systeme);
 
         if (noeud == 3) {//empêche le bouton de changer l'état de l'interface ou en mode protection  
             //etat de l'onduleur
@@ -122,7 +129,6 @@ void main(void) {
                 IO_RC2_SetHigh();
                 Etat = 0;
                 txCan.frame.data0 = 0x00;
-
             } else {//on
                 EUSART1_Write(0xFE);
                 EUSART1_Write(0x45);
@@ -174,7 +180,6 @@ void main(void) {
                 }
             } else if (rxCan.frame.id == 0x180) {//Batterie 2
                 uint8_t batterie = rxCan.frame.data0;
-
                 EUSART1_Write(0xFE);
                 EUSART1_Write(0x45);
                 EUSART1_Write(0x14);
@@ -195,7 +200,6 @@ void main(void) {
                 }
             }
         }
-
     }
 }
 /**

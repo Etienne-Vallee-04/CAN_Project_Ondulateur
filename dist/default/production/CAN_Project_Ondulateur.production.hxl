@@ -11,13 +11,13 @@
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\CAN_Project_Ondulateur.production.hex)
   8h - 77h		(dist/default/production\CAN_Project_Ondulateur.production.hex)
-  1000h - 27B9h		(dist/default/production\CAN_Project_Ondulateur.production.hex)
+  1000h - 2893h		(dist/default/production\CAN_Project_Ondulateur.production.hex)
   200000h - 200007h		(dist/default/production\CAN_Project_Ondulateur.production.hex)
   300000h - 30000Dh		(dist/default/production\CAN_Project_Ondulateur.production.hex)
  Unused ranges:
   4h - 7h
   78h - FFFh
-  27BAh - 1FFFFFh
+  2894h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -415,7 +415,21 @@
 00002780 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002790 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000027A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000027B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
+000027B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000027C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000027D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000027E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000027F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002800 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002810 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002820 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002830 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002840 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002850 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002860 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002870 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002890 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
