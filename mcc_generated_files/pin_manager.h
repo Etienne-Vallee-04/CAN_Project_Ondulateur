@@ -93,22 +93,22 @@
 #define IO_RA5_SetAnalogMode()      do { ANCON0bits.ANSEL4 = 1; } while(0)
 #define IO_RA5_SetDigitalMode()     do { ANCON0bits.ANSEL4 = 0; } while(0)
 
-// get/set IO_RB0 aliases
-#define IO_RB0_TRIS                 TRISBbits.TRISB0
-#define IO_RB0_LAT                  LATBbits.LATB0
-#define IO_RB0_PORT                 PORTBbits.RB0
-#define IO_RB0_WPU                  WPUBbits.WPUB0
-#define IO_RB0_ANS                  ANCON1bits.ANSEL10
-#define IO_RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
-#define IO_RB0_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
-#define IO_RB0_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
-#define IO_RB0_GetValue()           PORTBbits.RB0
-#define IO_RB0_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
-#define IO_RB0_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
-#define IO_RB0_SetPullup()          do { WPUBbits.WPUB0 = 1; } while(0)
-#define IO_RB0_ResetPullup()        do { WPUBbits.WPUB0 = 0; } while(0)
-#define IO_RB0_SetAnalogMode()      do { ANCON1bits.ANSEL10 = 1; } while(0)
-#define IO_RB0_SetDigitalMode()     do { ANCON1bits.ANSEL10 = 0; } while(0)
+// get/set channel_AN8 aliases
+#define channel_AN8_TRIS                 TRISBbits.TRISB1
+#define channel_AN8_LAT                  LATBbits.LATB1
+#define channel_AN8_PORT                 PORTBbits.RB1
+#define channel_AN8_WPU                  WPUBbits.WPUB1
+#define channel_AN8_ANS                  ANCON1bits.ANSEL8
+#define channel_AN8_SetHigh()            do { LATBbits.LATB1 = 1; } while(0)
+#define channel_AN8_SetLow()             do { LATBbits.LATB1 = 0; } while(0)
+#define channel_AN8_Toggle()             do { LATBbits.LATB1 = ~LATBbits.LATB1; } while(0)
+#define channel_AN8_GetValue()           PORTBbits.RB1
+#define channel_AN8_SetDigitalInput()    do { TRISBbits.TRISB1 = 1; } while(0)
+#define channel_AN8_SetDigitalOutput()   do { TRISBbits.TRISB1 = 0; } while(0)
+#define channel_AN8_SetPullup()          do { WPUBbits.WPUB1 = 1; } while(0)
+#define channel_AN8_ResetPullup()        do { WPUBbits.WPUB1 = 0; } while(0)
+#define channel_AN8_SetAnalogMode()      do { ANCON1bits.ANSEL8 = 1; } while(0)
+#define channel_AN8_SetDigitalMode()     do { ANCON1bits.ANSEL8 = 0; } while(0)
 
 // get/set RB2 procedures
 #define RB2_SetHigh()            do { LATBbits.LATB2 = 1; } while(0)

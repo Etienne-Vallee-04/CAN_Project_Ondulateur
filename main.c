@@ -49,11 +49,14 @@ int Switch = 0;
 int Protection = 0;
 int Systeme = 0;
 int Batterie = 0;
+uint8_t charge_LSB = 0;
+uint8_t charge_MSB = 0;
 
 enum etat {
     OffSwitch, On, Off
 };
 int etat = Off;
+
 void timer_1s(void) {
     flag_timer_1s = 1;
 }
@@ -70,12 +73,16 @@ void main(void) {
     INTERRUPT_PeripheralInterruptEnable();
 
     RXB0CON = 0x60; // Accept all messages
+    //    RXM0SIDH = 0x07
+    //    RXM0SIDL = 0x2F
+    //    RXF0SIDH = 0x01
+    //    RXF0SIDL = 0x00
 
     uCAN_MSG txCan;
     uCAN_MSG rxCan;
 
     txCan.frame.id = 0x1A0; //CAN transmit
-    txCan.frame.dlc = 1;
+    txCan.frame.dlc = 3;
     txCan.frame.data0 = 0;
 
     rxCan.frame.id = 0; //CAN Reçu
@@ -103,36 +110,49 @@ void main(void) {
                 }
             } else if (rxCan.frame.id == 0x120) {//Interface donnée
                 if (rxCan.frame.data0 != 0x00) {//alimenter
-                    Systeme = 1;
-                } else {//non-alimenter
                     Systeme = 0;
+                } else {//non-alimenter
+                    Systeme = 1;
                 }
             } else if (rxCan.frame.id == 0x180) {//Batterie donnée
                 uint8_t batterie = rxCan.frame.data0;
                 if (batterie <= 2) {
                     Batterie = 0;
+                } else if (batterie <= 20 || batterie >= 2) {
+                    Batterie = 2;
                 } else {
                     Batterie = 1;
                 }
             }
         }
-        //Envoyer l'état de l'ondulaire
 
+        //etat de l'onduleur sur la switch
+        if (IO_RA0_GetValue() == 1) {//off
+            Switch = 0; //état of
+        } else {//on
+            Switch = 1; //etat on
+        }
+
+        //Envoyer l'état de l'ondulaire avec une Machine à État
         switch (etat) {
-            case On:
+            case On://transmisssion avec les autres noeuds
                 IO_RC2_SetLow(); //led verte allumée
-                IO_RC3_SetHigh();
+                if (Batterie == 2) {//avertissement batterie faible
+                    IO_RC3_Toggle();
+                }else {
+                    IO_RC3_SetHigh();
+                }
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0xFF; //ON
+                    uint32_t charge = ADC_GetConversion(channel_AN8); //convertir la valeur de la charge
+                    charge = (charge * 300); //mettre la valeur de l'adc de 0 à 300
+                    charge = (charge / 4096);
+                    txCan.frame.data1 = charge >> 8;
+                    txCan.frame.data2 = charge; //
                     CAN_transmit(&txCan);
                     flag_timer_1s = 0;
                 }
-                //etat de l'onduleur sur la switch
-                if (IO_RA0_GetValue() == 1) {//off
-                    Switch = 0; //état of
-                } else {//on
-                    Switch = 1; //etat on
-                }
+
                 //conditions de changement d'état
                 if (Protection == 1 || Systeme == 0 || Batterie == 0) {//Off par les noeud
                     etat = Off;
@@ -168,7 +188,6 @@ void main(void) {
                 } else if (Switch == 1) {// off par la switch
                     etat = On;
                 }
-
                 break;
         }
     }

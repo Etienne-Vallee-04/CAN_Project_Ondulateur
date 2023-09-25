@@ -20334,6 +20334,32 @@ extern void (*TMR1_InterruptHandler)(void);
 void TMR1_DefaultInterruptHandler(void);
 # 56 "mcc_generated_files/mcc.h" 2
 
+# 1 "mcc_generated_files/adc.h" 1
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+# 86 "mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_CTMU = 0x1C,
+    channel_Temp_diode = 0x1D,
+    channel_Vdd_core = 0x1E,
+    channel_1_024V_bandgap = 0x1F,
+    channel_AN8 = 0x8
+} adc_channel_t;
+# 128 "mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 157 "mcc_generated_files/adc.h"
+void ADC_StartConversion(adc_channel_t channel);
+# 189 "mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 222 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 252 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 280 "mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 57 "mcc_generated_files/mcc.h" 2
+
 # 1 "mcc_generated_files/eusart1.h" 1
 # 76 "mcc_generated_files/eusart1.h"
 typedef union {
@@ -20365,7 +20391,7 @@ void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 57 "mcc_generated_files/mcc.h" 2
+# 58 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/ecan.h" 1
 # 62 "mcc_generated_files/ecan.h"
@@ -20406,10 +20432,10 @@ uint8_t CAN_isTXErrorPassive(void);
 void ECAN_SetWakeUpInterruptHandler(void (*handler)(void));
 # 331 "mcc_generated_files/ecan.h"
 void ECAN_WAKI_ISR(void);
-# 58 "mcc_generated_files/mcc.h" 2
-# 73 "mcc_generated_files/mcc.h"
+# 59 "mcc_generated_files/mcc.h" 2
+# 74 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "mcc_generated_files/mcc.h"
+# 87 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
 # 50 "mcc_generated_files/interrupt_manager.c" 2
 

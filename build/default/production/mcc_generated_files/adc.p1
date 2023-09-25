@@ -1,99 +1,67 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"58 main.c
-[; ;main.c: 58: int etat = Off;
-[c E12620 0 1 2 .. ]
-[n E12620 etat OffSwitch On Off  ]
-[p mainexit ]
-"74 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 74: void SYSTEM_Initialize(void);
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-[v F12529 `(v ~T0 @X0 0 tf ]
-"403 ./mcc_generated_files/tmr1.h
-[; ;./mcc_generated_files/tmr1.h: 403:  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR1_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12529 ]
-"36655 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 36655:     struct {
-[s S1492 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1492 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"36665
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 36665:     struct {
-[s S1493 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1493 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"36675
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 36675:     struct {
-[s S1494 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1494 . . GIEL GIEH ]
-"36654
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 36654: typedef union {
-[u S1491 `S1492 1 `S1493 1 `S1494 1 ]
-[n S1491 . . . . ]
-"36681
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 36681: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS1491 ~T0 @X0 0 e@4082 ]
-"27582
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 27582: extern volatile unsigned char RXB0CON __attribute__((address(0xF60)));
-[v _RXB0CON `Vuc ~T0 @X0 0 e@3936 ]
-"64 ./mcc_generated_files/ecan.h
-[; ;./mcc_generated_files/ecan.h: 64:     struct {
-[s S1531 `uc 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1531 . idType id dlc data0 data1 data2 data3 data4 data5 data6 data7 ]
-"62
-[; ;./mcc_generated_files/ecan.h: 62: typedef union {
-[u S1530 `S1531 1 `uc -> 14 `i ]
-[n S1530 . frame array ]
-"342 ./mcc_generated_files/eusart1.h
-[; ;./mcc_generated_files/eusart1.h: 342: void EUSART1_Write(uint8_t txData);
-[v _EUSART1_Write `(v ~T0 @X0 0 ef1`uc ]
-"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+[v F12213 `(v ~T0 @X0 0 tf ]
+"34383 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34383: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"34279
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34279: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"34208
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34208: extern volatile unsigned char ADCON2 __attribute__((address(0xFC0)));
+[v _ADCON2 `Vuc ~T0 @X0 0 e@4032 ]
+"34535
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34535: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"34515
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34515: extern volatile unsigned char ADRESL __attribute__((address(0xFC3)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"83 mcc_generated_files/adc.c
+[; ;mcc_generated_files/adc.c: 83: void ADC_StartConversion(adc_channel_t channel)
+[c E12197 28 29 30 31 8 .. ]
+[n E12197 . channel_CTMU channel_Temp_diode channel_Vdd_core channel_1_024V_bandgap channel_AN8  ]
+"34389 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34389:     struct {
+[s S1346 :1 `uc 1 :1 `uc 1 ]
+[n S1346 . . GO_NOT_DONE ]
+"34393
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34393:     struct {
+[s S1347 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S1347 . ADON GO_nDONE CHS ]
+"34398
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34398:     struct {
+[s S1348 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1348 . . DONE CHS0 CHS1 CHS2 CHS3 CHS4 ]
+"34407
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34407:     struct {
+[s S1349 :1 `uc 1 :1 `uc 1 ]
+[n S1349 . . GO ]
+"34411
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34411:     struct {
+[s S1350 :1 `uc 1 :1 `uc 1 ]
+[n S1350 . . NOT_DONE ]
+"34415
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34415:     struct {
+[s S1351 :1 `uc 1 :1 `uc 1 ]
+[n S1351 . . nDONE ]
+"34419
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34419:     struct {
+[s S1352 :1 `uc 1 :1 `uc 1 ]
+[n S1352 . . GODONE ]
+"34423
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34423:     struct {
+[s S1353 :1 `uc 1 :1 `uc 1 ]
+[n S1353 . . GO_DONE ]
+"34388
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34388: typedef union {
+[u S1345 `S1346 1 `S1347 1 `S1348 1 `S1349 1 `S1350 1 `S1351 1 `S1352 1 `S1353 1 ]
+[n S1345 . . . . . . . . . ]
+"34428
+[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 34428: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
+[v _ADCON0bits `VS1345 ~T0 @X0 0 e@4034 ]
 [v F12156 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v __delay `JF12156 ~T0 @X0 0 e ]
 [p i __delay ]
-"182 ./mcc_generated_files/ecan.h
-[; ;./mcc_generated_files/ecan.h: 182: uint8_t CAN_receive(uCAN_MSG *tempCanMsg);
-[v _CAN_receive `(uc ~T0 @X0 0 ef1`*S1530 ]
-"29865 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 29865:     struct {
-[s S1136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1136 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
-"29875
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 29875:     struct {
-[s S1137 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1137 . ULPWUIN . LVDIN . RJPU ]
-"29864
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 29864: typedef union {
-[u S1135 `S1136 1 `S1137 1 ]
-[n S1135 . . . ]
-"29883
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 29883: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
-[v _PORTAbits `VS1135 ~T0 @X0 0 e@3968 ]
-"30445
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 30445:     struct {
-[s S1161 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1161 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"30455
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 30455:     struct {
-[s S1162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1162 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"30444
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 30444: typedef union {
-[u S1160 `S1161 1 `S1162 1 ]
-[n S1160 . . . ]
-"30466
-[; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 30466: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
-[v _LATCbits `VS1160 ~T0 @X0 0 e@3979 ]
-"147 main.c
-[; ;main.c: 147:                     uint32_t charge = ADC_GetConversion(channel_AN8);
-[c E12536 28 29 30 31 8 .. ]
-[n E12536 . channel_CTMU channel_Temp_diode channel_Vdd_core channel_1_024V_bandgap channel_AN8  ]
-"252 ./mcc_generated_files/adc.h
-[; ;./mcc_generated_files/adc.h: 252: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[v _ADC_GetConversion `(us ~T0 @X0 0 ef1`E12536 ]
-"158 ./mcc_generated_files/ecan.h
-[; ;./mcc_generated_files/ecan.h: 158: uint8_t CAN_transmit(uCAN_MSG *tempCanMsg);
-[v _CAN_transmit `(uc ~T0 @X0 0 ef1`*S1530 ]
 "54 C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h
 [; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1468,494 +1436,151 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37211
 [; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 37211: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"47 main.c
-[; ;main.c: 47: uint8_t flag_timer_1s = 0;
-[v _flag_timer_1s `uc ~T0 @X0 1 e ]
-[i _flag_timer_1s
--> -> 0 `i `uc
-]
-"48
-[; ;main.c: 48: int Switch = 0;
-[v _Switch `i ~T0 @X0 1 e ]
-[i _Switch
--> 0 `i
-]
-"49
-[; ;main.c: 49: int Protection = 0;
-[v _Protection `i ~T0 @X0 1 e ]
-[i _Protection
--> 0 `i
-]
-"50
-[; ;main.c: 50: int Systeme = 0;
-[v _Systeme `i ~T0 @X0 1 e ]
-[i _Systeme
--> 0 `i
-]
-"51
-[; ;main.c: 51: int Batterie = 0;
-[v _Batterie `i ~T0 @X0 1 e ]
-[i _Batterie
--> 0 `i
-]
-"52
-[; ;main.c: 52: uint8_t charge_LSB = 0;
-[v _charge_LSB `uc ~T0 @X0 1 e ]
-[i _charge_LSB
--> -> 0 `i `uc
-]
-"53
-[; ;main.c: 53: uint8_t charge_MSB = 0;
-[v _charge_MSB `uc ~T0 @X0 1 e ]
-[i _charge_MSB
--> -> 0 `i `uc
-]
-"58
-[; ;main.c: 58: int etat = Off;
-[v _etat `i ~T0 @X0 1 e ]
-[i _etat
--> . `E12620 2 `i
-]
-"60
-[; ;main.c: 60: void timer_1s(void) {
-[v _timer_1s `(v ~T0 @X0 1 ef ]
-{
-[e :U _timer_1s ]
-[f ]
-"61
-[; ;main.c: 61:     flag_timer_1s = 1;
-[e = _flag_timer_1s -> -> 1 `i `uc ]
+"56 mcc_generated_files/adc.c
+[; ;mcc_generated_files/adc.c: 56: void (*ADC_InterruptHandler)(void);
+[v _ADC_InterruptHandler `*F12213 ~T0 @X0 1 e ]
 "62
-[; ;main.c: 62: }
-[e :UE 1532 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"64
-[; ;main.c: 64: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;mcc_generated_files/adc.c: 62: void ADC_Initialize(void)
+[v _ADC_Initialize `(v ~T0 @X0 1 ef ]
+"63
+[; ;mcc_generated_files/adc.c: 63: {
 {
-[e :U _main ]
+[e :U _ADC_Initialize ]
 [f ]
-"66
-[; ;main.c: 66:     SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
-"68
-[; ;main.c: 68:     TMR1_SetInterruptHandler(timer_1s);
-[e ( _TMR1_SetInterruptHandler (1 &U _timer_1s ]
+"67
+[; ;mcc_generated_files/adc.c: 67:     ADCON0 = 0x01;
+[e = _ADCON0 -> -> 1 `i `uc ]
 "70
-[; ;main.c: 70:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;mcc_generated_files/adc.c: 70:     ADCON1 = 0x30;
+[e = _ADCON1 -> -> 48 `i `uc ]
 "73
-[; ;main.c: 73:     (INTCONbits.PEIE = 1);
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:     RXB0CON = 0x60;
-[e = _RXB0CON -> -> 96 `i `uc ]
+[; ;mcc_generated_files/adc.c: 73:     ADCON2 = 0x9A;
+[e = _ADCON2 -> -> 154 `i `uc ]
+"76
+[; ;mcc_generated_files/adc.c: 76:     ADRESH = 0x00;
+[e = _ADRESH -> -> 0 `i `uc ]
+"79
+[; ;mcc_generated_files/adc.c: 79:     ADRESL = 0x00;
+[e = _ADRESL -> -> 0 `i `uc ]
 "81
-[; ;main.c: 81:     uCAN_MSG txCan;
-[v _txCan `S1530 ~T0 @X0 1 a ]
-"82
-[; ;main.c: 82:     uCAN_MSG rxCan;
-[v _rxCan `S1530 ~T0 @X0 1 a ]
+[; ;mcc_generated_files/adc.c: 81: }
+[e :UE 1526 ]
+}
+"83
+[; ;mcc_generated_files/adc.c: 83: void ADC_StartConversion(adc_channel_t channel)
+[v _ADC_StartConversion `(v ~T0 @X0 1 ef1`E12197 ]
 "84
-[; ;main.c: 84:     txCan.frame.id = 0x1A0;
-[e = . . _txCan 0 1 -> -> -> 416 `i `l `ul ]
-"85
-[; ;main.c: 85:     txCan.frame.dlc = 3;
-[e = . . _txCan 0 2 -> -> 3 `i `uc ]
+[; ;mcc_generated_files/adc.c: 84: {
+{
+[e :U _ADC_StartConversion ]
+"83
+[; ;mcc_generated_files/adc.c: 83: void ADC_StartConversion(adc_channel_t channel)
+[v _channel `E12197 ~T0 @X0 1 r1 ]
+"84
+[; ;mcc_generated_files/adc.c: 84: {
+[f ]
 "86
-[; ;main.c: 86:     txCan.frame.data0 = 0;
-[e = . . _txCan 0 3 -> -> 0 `i `uc ]
-"88
-[; ;main.c: 88:     rxCan.frame.id = 0;
-[e = . . _rxCan 0 1 -> -> -> 0 `i `l `ul ]
+[; ;mcc_generated_files/adc.c: 86:     ADCON0bits.CHS = channel;
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
 "89
-[; ;main.c: 89:     rxCan.frame.dlc = 0;
-[e = . . _rxCan 0 2 -> -> 0 `i `uc ]
-"90
-[; ;main.c: 90:     rxCan.frame.data0 = 0;
-[e = . . _rxCan 0 3 -> -> 0 `i `uc ]
-"92
-[; ;main.c: 92:     EUSART1_Write(0xFE);
-[e ( _EUSART1_Write (1 -> -> 254 `i `uc ]
+[; ;mcc_generated_files/adc.c: 89:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "93
-[; ;main.c: 93:     EUSART1_Write(0x41);
-[e ( _EUSART1_Write (1 -> -> 65 `i `uc ]
+[; ;mcc_generated_files/adc.c: 93:     ADCON0bits.GO_nDONE = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "94
-[; ;main.c: 94:     EUSART1_Write(0xFE);
-[e ( _EUSART1_Write (1 -> -> 254 `i `uc ]
-"95
-[; ;main.c: 95:     EUSART1_Write(0x51);
-[e ( _EUSART1_Write (1 -> -> 81 `i `uc ]
+[; ;mcc_generated_files/adc.c: 94: }
+[e :UE 1527 ]
+}
 "96
-[; ;main.c: 96:     EUSART1_Write(0xFE);
-[e ( _EUSART1_Write (1 -> -> 254 `i `uc ]
+[; ;mcc_generated_files/adc.c: 96: _Bool ADC_IsConversionDone(void)
+[v _ADC_IsConversionDone `(a ~T0 @X0 1 ef ]
 "97
-[; ;main.c: 97:     EUSART1_Write(0x46);
-[e ( _EUSART1_Write (1 -> -> 70 `i `uc ]
-"98
-[; ;main.c: 98:     printf("CAN RECEIVER");
-[e ( _printf :s 1C ]
+[; ;mcc_generated_files/adc.c: 97: {
+{
+[e :U _ADC_IsConversionDone ]
+[f ]
 "99
-[; ;main.c: 99:     _delay((unsigned long)((1000)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"101
-[; ;main.c: 101:     while (1) {
-[e :U 1535 ]
+[; ;mcc_generated_files/adc.c: 99:     return ((unsigned char)(!ADCON0bits.GO_nDONE));
+[e ) -> -> -> ! != -> . . _ADCON0bits 1 1 `i -> 0 `i `i `uc `a ]
+[e $UE 1528  ]
+"100
+[; ;mcc_generated_files/adc.c: 100: }
+[e :UE 1528 ]
+}
+"102
+[; ;mcc_generated_files/adc.c: 102: adc_result_t ADC_GetConversionResult(void)
+[v _ADC_GetConversionResult `(us ~T0 @X0 1 ef ]
+"103
+[; ;mcc_generated_files/adc.c: 103: {
 {
-"104
-[; ;main.c: 104:         if (CAN_receive(&rxCan) >= 1) {
-[e $ ! >= -> ( _CAN_receive (1 &U _rxCan `i -> 1 `i 1537  ]
-{
+[e :U _ADC_GetConversionResult ]
+[f ]
 "105
-[; ;main.c: 105:             if (rxCan.frame.id == 0x100) {
-[e $ ! == . . _rxCan 0 1 -> -> -> 256 `i `l `ul 1538  ]
-{
+[; ;mcc_generated_files/adc.c: 105:     return ((adc_result_t)((ADRESH << 8) + ADRESL));
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+[e $UE 1529  ]
 "106
-[; ;main.c: 106:                 if (rxCan.frame.data0 != 0x00) {
-[e $ ! != -> . . _rxCan 0 3 `i -> 0 `i 1539  ]
-{
-"107
-[; ;main.c: 107:                     Protection = 1;
-[e = _Protection -> 1 `i ]
+[; ;mcc_generated_files/adc.c: 106: }
+[e :UE 1529 ]
+}
 "108
-[; ;main.c: 108:                 } else {
-}
-[e $U 1540  ]
-[e :U 1539 ]
-{
+[; ;mcc_generated_files/adc.c: 108: adc_result_t ADC_GetConversion(adc_channel_t channel)
+[v _ADC_GetConversion `(us ~T0 @X0 1 ef1`E12197 ]
 "109
-[; ;main.c: 109:                     Protection = 0;
-[e = _Protection -> 0 `i ]
-"110
-[; ;main.c: 110:                 }
-}
-[e :U 1540 ]
+[; ;mcc_generated_files/adc.c: 109: {
+{
+[e :U _ADC_GetConversion ]
+"108
+[; ;mcc_generated_files/adc.c: 108: adc_result_t ADC_GetConversion(adc_channel_t channel)
+[v _channel `E12197 ~T0 @X0 1 r1 ]
+"109
+[; ;mcc_generated_files/adc.c: 109: {
+[f ]
 "111
-[; ;main.c: 111:             } else if (rxCan.frame.id == 0x120) {
-}
-[e $U 1541  ]
-[e :U 1538 ]
-[e $ ! == . . _rxCan 0 1 -> -> -> 288 `i `l `ul 1542  ]
-{
-"112
-[; ;main.c: 112:                 if (rxCan.frame.data0 != 0x00) {
-[e $ ! != -> . . _rxCan 0 3 `i -> 0 `i 1543  ]
-{
-"113
-[; ;main.c: 113:                     Systeme = 0;
-[e = _Systeme -> 0 `i ]
+[; ;mcc_generated_files/adc.c: 111:     ADCON0bits.CHS = channel;
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
 "114
-[; ;main.c: 114:                 } else {
-}
-[e $U 1544  ]
-[e :U 1543 ]
-{
-"115
-[; ;main.c: 115:                     Systeme = 1;
-[e = _Systeme -> 1 `i ]
-"116
-[; ;main.c: 116:                 }
-}
-[e :U 1544 ]
-"117
-[; ;main.c: 117:             } else if (rxCan.frame.id == 0x180) {
-}
-[e $U 1545  ]
-[e :U 1542 ]
-[e $ ! == . . _rxCan 0 1 -> -> -> 384 `i `l `ul 1546  ]
-{
+[; ;mcc_generated_files/adc.c: 114:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "118
-[; ;main.c: 118:                 uint8_t batterie = rxCan.frame.data0;
-[v _batterie `uc ~T0 @X0 1 a ]
-[e = _batterie . . _rxCan 0 3 ]
-"119
-[; ;main.c: 119:                 if (batterie <= 2) {
-[e $ ! <= -> _batterie `i -> 2 `i 1547  ]
-{
-"120
-[; ;main.c: 120:                     Batterie = 0;
-[e = _Batterie -> 0 `i ]
+[; ;mcc_generated_files/adc.c: 118:     ADCON0bits.GO_nDONE = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "121
-[; ;main.c: 121:                 } else if (batterie <= 20 || batterie >= 2) {
-}
-[e $U 1548  ]
-[e :U 1547 ]
-[e $ ! || <= -> _batterie `i -> 20 `i >= -> _batterie `i -> 2 `i 1549  ]
-{
+[; ;mcc_generated_files/adc.c: 121:     while (ADCON0bits.GO_nDONE)
+[e $U 1531  ]
+[e :U 1532 ]
 "122
-[; ;main.c: 122:                     Batterie = 2;
-[e = _Batterie -> 2 `i ]
+[; ;mcc_generated_files/adc.c: 122:     {
+{
 "123
-[; ;main.c: 123:                 } else {
+[; ;mcc_generated_files/adc.c: 123:     }
 }
-[e $U 1550  ]
-[e :U 1549 ]
-{
-"124
-[; ;main.c: 124:                     Batterie = 1;
-[e = _Batterie -> 1 `i ]
-"125
-[; ;main.c: 125:                 }
-}
-[e :U 1550 ]
-[e :U 1548 ]
+[e :U 1531 ]
+"121
+[; ;mcc_generated_files/adc.c: 121:     while (ADCON0bits.GO_nDONE)
+[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 1532  ]
+[e :U 1533 ]
 "126
-[; ;main.c: 126:             }
-}
-[e :U 1546 ]
-[e :U 1545 ]
-[e :U 1541 ]
+[; ;mcc_generated_files/adc.c: 126:     return ((adc_result_t)((ADRESH << 8) + ADRESL));
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+[e $UE 1530  ]
 "127
-[; ;main.c: 127:         }
+[; ;mcc_generated_files/adc.c: 127: }
+[e :UE 1530 ]
 }
-[e :U 1537 ]
+"129
+[; ;mcc_generated_files/adc.c: 129: void ADC_TemperatureAcquisitionDelay(void)
+[v _ADC_TemperatureAcquisitionDelay `(v ~T0 @X0 1 ef ]
 "130
-[; ;main.c: 130:         if (PORTAbits.RA0 == 1) {
-[e $ ! == -> . . _PORTAbits 0 0 `i -> 1 `i 1551  ]
+[; ;mcc_generated_files/adc.c: 130: {
 {
+[e :U _ADC_TemperatureAcquisitionDelay ]
+[f ]
 "131
-[; ;main.c: 131:             Switch = 0;
-[e = _Switch -> 0 `i ]
+[; ;mcc_generated_files/adc.c: 131:     _delay((unsigned long)((200)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "132
-[; ;main.c: 132:         } else {
+[; ;mcc_generated_files/adc.c: 132: }
+[e :UE 1534 ]
 }
-[e $U 1552  ]
-[e :U 1551 ]
-{
-"133
-[; ;main.c: 133:             Switch = 1;
-[e = _Switch -> 1 `i ]
-"134
-[; ;main.c: 134:         }
-}
-[e :U 1552 ]
-"137
-[; ;main.c: 137:         switch (etat) {
-[e $U 1554  ]
-{
-"138
-[; ;main.c: 138:             case On:
-[e :U 1555 ]
-"139
-[; ;main.c: 139:                 do { LATCbits.LATC2 = 0; } while(0);
-[e :U 1558 ]
-{
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 1557 ]
-"140
-[; ;main.c: 140:                 if (Batterie == 2) {
-[e $ ! == _Batterie -> 2 `i 1559  ]
-{
-"141
-[; ;main.c: 141:                     do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0);
-[e :U 1562 ]
-{
-[e = . . _LATCbits 0 3 -> ~ -> . . _LATCbits 0 3 `i `uc ]
-}
-[e :U 1561 ]
-"142
-[; ;main.c: 142:                 }else {
-}
-[e $U 1563  ]
-[e :U 1559 ]
-{
-"143
-[; ;main.c: 143:                     do { LATCbits.LATC3 = 1; } while(0);
-[e :U 1566 ]
-{
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-}
-[e :U 1565 ]
-"144
-[; ;main.c: 144:                 }
-}
-[e :U 1563 ]
-"145
-[; ;main.c: 145:                 if (flag_timer_1s == 1) {
-[e $ ! == -> _flag_timer_1s `i -> 1 `i 1567  ]
-{
-"146
-[; ;main.c: 146:                     txCan.frame.data0 = 0xFF;
-[e = . . _txCan 0 3 -> -> 255 `i `uc ]
-"147
-[; ;main.c: 147:                     uint32_t charge = ADC_GetConversion(channel_AN8);
-[v _charge `ul ~T0 @X0 1 a ]
-[e = _charge -> ( _ADC_GetConversion (1 . `E12536 4 `ul ]
-"148
-[; ;main.c: 148:                     charge = (charge * 300);
-[e = _charge * _charge -> -> -> 300 `i `l `ul ]
-"149
-[; ;main.c: 149:                     charge = (charge / 4096);
-[e = _charge / _charge -> -> -> 4096 `i `l `ul ]
-"150
-[; ;main.c: 150:                     txCan.frame.data1 = charge >> 8;
-[e = . . _txCan 0 4 -> >> _charge -> 8 `i `uc ]
-"151
-[; ;main.c: 151:                     txCan.frame.data2 = charge;
-[e = . . _txCan 0 5 -> _charge `uc ]
-"152
-[; ;main.c: 152:                     CAN_transmit(&txCan);
-[e ( _CAN_transmit (1 &U _txCan ]
-"153
-[; ;main.c: 153:                     flag_timer_1s = 0;
-[e = _flag_timer_1s -> -> 0 `i `uc ]
-"154
-[; ;main.c: 154:                 }
-}
-[e :U 1567 ]
-"157
-[; ;main.c: 157:                 if (Protection == 1 || Systeme == 0 || Batterie == 0) {
-[e $ ! || || == _Protection -> 1 `i == _Systeme -> 0 `i == _Batterie -> 0 `i 1568  ]
-{
-"158
-[; ;main.c: 158:                     etat = Off;
-[e = _etat -> . `E12620 2 `i ]
-"159
-[; ;main.c: 159:                 } else if (Switch == 0) {
-}
-[e $U 1569  ]
-[e :U 1568 ]
-[e $ ! == _Switch -> 0 `i 1570  ]
-{
-"160
-[; ;main.c: 160:                     etat = OffSwitch;
-[e = _etat -> . `E12620 0 `i ]
-"161
-[; ;main.c: 161:                 }
-}
-[e :U 1570 ]
-[e :U 1569 ]
-"162
-[; ;main.c: 162:                 break;
-[e $U 1553  ]
-"164
-[; ;main.c: 164:             case Off:
-[e :U 1571 ]
-"165
-[; ;main.c: 165:                 do { LATCbits.LATC2 = 1; } while(0);
-[e :U 1574 ]
-{
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 1573 ]
-"166
-[; ;main.c: 166:                 do { LATCbits.LATC3 = 0; } while(0);
-[e :U 1577 ]
-{
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 1576 ]
-"168
-[; ;main.c: 168:                 if (Protection == 0 && Systeme == 1 && Batterie == 1) {
-[e $ ! && && == _Protection -> 0 `i == _Systeme -> 1 `i == _Batterie -> 1 `i 1578  ]
-{
-"169
-[; ;main.c: 169:                     if (Switch == 1) {
-[e $ ! == _Switch -> 1 `i 1579  ]
-{
-"170
-[; ;main.c: 170:                         etat = On;
-[e = _etat -> . `E12620 1 `i ]
-"171
-[; ;main.c: 171:                     } else {
-}
-[e $U 1580  ]
-[e :U 1579 ]
-{
-"172
-[; ;main.c: 172:                         etat = OffSwitch;
-[e = _etat -> . `E12620 0 `i ]
-"173
-[; ;main.c: 173:                     }
-}
-[e :U 1580 ]
-"174
-[; ;main.c: 174:                 }
-}
-[e :U 1578 ]
-"175
-[; ;main.c: 175:                 break;
-[e $U 1553  ]
-"176
-[; ;main.c: 176:             case OffSwitch:
-[e :U 1581 ]
-"177
-[; ;main.c: 177:                 do { LATCbits.LATC2 = 1; } while(0);
-[e :U 1584 ]
-{
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 1583 ]
-"178
-[; ;main.c: 178:                 do { LATCbits.LATC3 = 0; } while(0);
-[e :U 1587 ]
-{
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 1586 ]
-"180
-[; ;main.c: 180:                 if (flag_timer_1s == 1) {
-[e $ ! == -> _flag_timer_1s `i -> 1 `i 1588  ]
-{
-"181
-[; ;main.c: 181:                     txCan.frame.data0 = 0x00;
-[e = . . _txCan 0 3 -> -> 0 `i `uc ]
-"182
-[; ;main.c: 182:                     CAN_transmit(&txCan);
-[e ( _CAN_transmit (1 &U _txCan ]
-"183
-[; ;main.c: 183:                     flag_timer_1s = 0;
-[e = _flag_timer_1s -> -> 0 `i `uc ]
-"184
-[; ;main.c: 184:                 }
-}
-[e :U 1588 ]
-"186
-[; ;main.c: 186:                 if (Protection == 1 || Systeme == 0 || Batterie == 0) {
-[e $ ! || || == _Protection -> 1 `i == _Systeme -> 0 `i == _Batterie -> 0 `i 1589  ]
-{
-"187
-[; ;main.c: 187:                     etat = Off;
-[e = _etat -> . `E12620 2 `i ]
-"188
-[; ;main.c: 188:                 } else if (Switch == 1) {
-}
-[e $U 1590  ]
-[e :U 1589 ]
-[e $ ! == _Switch -> 1 `i 1591  ]
-{
-"189
-[; ;main.c: 189:                     etat = On;
-[e = _etat -> . `E12620 1 `i ]
-"190
-[; ;main.c: 190:                 }
-}
-[e :U 1591 ]
-[e :U 1590 ]
-"191
-[; ;main.c: 191:                 break;
-[e $U 1553  ]
-"192
-[; ;main.c: 192:         }
-}
-[e $U 1553  ]
-[e :U 1554 ]
-[e [\ _etat , $ . `E12620 1 1555
- , $ . `E12620 2 1571
- , $ . `E12620 0 1581
- 1553 ]
-[e :U 1553 ]
-"193
-[; ;main.c: 193:     }
-}
-[e :U 1534 ]
-[e $U 1535  ]
-[e :U 1536 ]
-"194
-[; ;main.c: 194: }
-[e :UE 1533 ]
-}
-[p f _printf 8388608 ]
-[a 1C 67 65 78 32 82 69 67 69 73 86 69 82 0 ]

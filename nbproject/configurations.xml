@@ -14,6 +14,7 @@
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/eusart1.h</itemPath>
+        <itemPath>mcc_generated_files/adc.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -33,6 +34,7 @@
         <itemPath>mcc_generated_files/ecan.c</itemPath>
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/eusart1.c</itemPath>
+        <itemPath>mcc_generated_files/adc.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>newfile.c</itemPath>

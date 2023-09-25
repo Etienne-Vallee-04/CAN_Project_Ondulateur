@@ -3,11 +3,27 @@
 [d edition pro ]
 [d chip 18F25K80 ]
 [d frameptr 4065 ]
-"56 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
-[e E12602 etat `uc
+"83 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/adc.c
+[e E12197 . `uc
+channel_CTMU 28
+channel_Temp_diode 29
+channel_Vdd_core 30
+channel_1_024V_bandgap 31
+channel_AN8 8
+]
+"58 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+[e E12620 etat `uc
 OffSwitch 0
 On 1
 Off 2
+]
+"147
+[e E12536 . `uc
+channel_CTMU 28
+channel_Temp_diode 29
+channel_Vdd_core 30
+channel_1_024V_bandgap 31
+channel_AN8 8
 ]
 "1007 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
@@ -43,10 +59,14 @@ Off 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"57 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"60 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _timer_1s timer_1s `(v  1 e 1 0 ]
-"61
+"64
 [v _main main `(v  1 e 1 0 ]
+"62 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"108
+[v _ADC_GetConversion ADC_GetConversion `(us  1 e 2 0 ]
 "63 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _WakeUpDefaultInterruptHandler WakeUpDefaultInterruptHandler `(v  1 s 1 WakeUpDefaultInterruptHandler ]
 "65
@@ -91,7 +111,7 @@ Off 2
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
 "50 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"61
+"62
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "55 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -177,7 +197,7 @@ Off 2
 [v _RXM1EIDH RXM1EIDH `VEuc  1 e 1 @3838 ]
 "19895
 [v _RXM1EIDL RXM1EIDL `VEuc  1 e 1 @3839 ]
-[s S551 . 1 `uc 1 TXPRI 1 0 :2:0 
+[s S555 . 1 `uc 1 TXPRI 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXREQ 1 0 :1:3 
 `uc 1 TXERR 1 0 :1:4 
@@ -186,10 +206,10 @@ Off 2
 `uc 1 TXBIF 1 0 :1:7 
 ]
 "20045
-[s S559 . 1 `uc 1 TXPRI0 1 0 :1:0 
+[s S563 . 1 `uc 1 TXPRI0 1 0 :1:0 
 `uc 1 TXPRI1 1 0 :1:1 
 ]
-[s S688 . 1 `uc 1 TXB2PRI0 1 0 :1:0 
+[s S692 . 1 `uc 1 TXB2PRI0 1 0 :1:0 
 `uc 1 TXB2PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB2REQ 1 0 :1:3 
@@ -198,8 +218,8 @@ Off 2
 `uc 1 TXB2ABT 1 0 :1:6 
 `uc 1 TX2IF 1 0 :1:7 
 ]
-[u S697 . 1 `S551 1 . 1 0 `S559 1 . 1 0 `S688 1 . 1 0 ]
-[v _TXB2CONbits TXB2CONbits `VES697  1 e 1 @3840 ]
+[u S701 . 1 `S555 1 . 1 0 `S563 1 . 1 0 `S692 1 . 1 0 ]
+[v _TXB2CONbits TXB2CONbits `VES701  1 e 1 @3840 ]
 "20125
 [v _TXB2SIDH TXB2SIDH `VEuc  1 e 1 @3841 ]
 "20245
@@ -227,7 +247,7 @@ Off 2
 "21173
 [v _TXB2D7 TXB2D7 `VEuc  1 e 1 @3853 ]
 "21476
-[s S630 . 1 `uc 1 TXB1PRI0 1 0 :1:0 
+[s S634 . 1 `uc 1 TXB1PRI0 1 0 :1:0 
 `uc 1 TXB1PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB1REQ 1 0 :1:3 
@@ -236,8 +256,8 @@ Off 2
 `uc 1 TXB1ABT 1 0 :1:6 
 `uc 1 TX1IF 1 0 :1:7 
 ]
-[u S639 . 1 `S551 1 . 1 0 `S559 1 . 1 0 `S630 1 . 1 0 ]
-[v _TXB1CONbits TXB1CONbits `VES639  1 e 1 @3856 ]
+[u S643 . 1 `S555 1 . 1 0 `S563 1 . 1 0 `S634 1 . 1 0 ]
+[v _TXB1CONbits TXB1CONbits `VES643  1 e 1 @3856 ]
 "21556
 [v _TXB1SIDH TXB1SIDH `VEuc  1 e 1 @3857 ]
 "21676
@@ -265,7 +285,7 @@ Off 2
 "22604
 [v _TXB1D7 TXB1D7 `VEuc  1 e 1 @3869 ]
 "22907
-[s S562 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
+[s S566 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
 `uc 1 TXB0PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB0REQ 1 0 :1:3 
@@ -274,8 +294,8 @@ Off 2
 `uc 1 TXB0ABT 1 0 :1:6 
 `uc 1 TX0IF 1 0 :1:7 
 ]
-[u S571 . 1 `S551 1 . 1 0 `S559 1 . 1 0 `S562 1 . 1 0 ]
-[v _TXB0CONbits TXB0CONbits `VES571  1 e 1 @3872 ]
+[u S575 . 1 `S555 1 . 1 0 `S563 1 . 1 0 `S566 1 . 1 0 ]
+[v _TXB0CONbits TXB0CONbits `VES575  1 e 1 @3872 ]
 "22987
 [v _TXB0SIDH TXB0SIDH `VEuc  1 e 1 @3873 ]
 "23107
@@ -302,7 +322,7 @@ Off 2
 [v _TXB0D6 TXB0D6 `VEuc  1 e 1 @3884 ]
 "24035
 [v _TXB0D7 TXB0D7 `VEuc  1 e 1 @3885 ]
-[s S843 . 1 `uc 1 FILHIT0 1 0 :1:0 
+[s S847 . 1 `uc 1 FILHIT0 1 0 :1:0 
 `uc 1 FILHIT1 1 0 :1:1 
 `uc 1 FILHIT2 1 0 :1:2 
 `uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
@@ -312,17 +332,17 @@ Off 2
 `uc 1 RXFUL 1 0 :1:7 
 ]
 "24353
-[s S852 . 1 `uc 1 . 1 0 :3:0 
+[s S856 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXRTRRO 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXM0 1 0 :1:5 
 ]
-[s S857 . 1 `uc 1 . 1 0 :3:0 
+[s S861 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 FILHIT3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RTRRO 1 0 :1:5 
 ]
-[s S862 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
+[s S866 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
 `uc 1 RXB1FILHIT1 1 0 :1:1 
 `uc 1 RXB1FILHIT2 1 0 :1:2 
 `uc 1 RXB1FILHIT3 1 0 :1:3 
@@ -331,13 +351,13 @@ Off 2
 `uc 1 RXB1M1 1 0 :1:6 
 `uc 1 RXB1FUL 1 0 :1:7 
 ]
-[s S871 . 1 `uc 1 . 1 0 :3:0 
+[s S875 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXB1RTRR0 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXB1RTRRO 1 0 :1:5 
 ]
-[u S876 . 1 `S843 1 . 1 0 `S852 1 . 1 0 `S857 1 . 1 0 `S862 1 . 1 0 `S871 1 . 1 0 ]
-[v _RXB1CONbits RXB1CONbits `VES876  1 e 1 @3888 ]
+[u S880 . 1 `S847 1 . 1 0 `S856 1 . 1 0 `S861 1 . 1 0 `S866 1 . 1 0 `S875 1 . 1 0 ]
+[v _RXB1CONbits RXB1CONbits `VES880  1 e 1 @3888 ]
 "24468
 [v _RXB1SIDH RXB1SIDH `VEuc  1 e 1 @3889 ]
 "24588
@@ -372,7 +392,7 @@ Off 2
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3933 ]
 "27582
 [v _RXB0CON RXB0CON `VEuc  1 e 1 @3936 ]
-[s S735 . 1 `uc 1 FILHIT0 1 0 :1:0 
+[s S739 . 1 `uc 1 FILHIT0 1 0 :1:0 
 `uc 1 JTOFF_FILHIT1 1 0 :1:1 
 `uc 1 RB0DBEN_FILHIT2 1 0 :1:2 
 `uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
@@ -382,21 +402,21 @@ Off 2
 `uc 1 RXFUL 1 0 :1:7 
 ]
 "27631
-[s S744 . 1 `uc 1 . 1 0 :1:0 
+[s S748 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 JTOFF 1 0 :1:1 
 `uc 1 RB0DBEN 1 0 :1:2 
 `uc 1 RXRTRRO 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RTRRO 1 0 :1:5 
 ]
-[s S751 . 1 `uc 1 . 1 0 :1:0 
+[s S755 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 FILHIT1 1 0 :1:1 
 `uc 1 FILHIT2 1 0 :1:2 
 `uc 1 FILHIT3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXM0 1 0 :1:5 
 ]
-[s S758 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+[s S762 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
 `uc 1 RXB0FILHIT1 1 0 :1:1 
 `uc 1 RXB0FILHIT2 1 0 :1:2 
 `uc 1 RXB0FILHIT3 1 0 :1:3 
@@ -405,13 +425,13 @@ Off 2
 `uc 1 RXB0M1 1 0 :1:6 
 `uc 1 RXB0FUL 1 0 :1:7 
 ]
-[s S767 . 1 `uc 1 . 1 0 :3:0 
+[s S771 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXB0RTRR0 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXB0RTRRO 1 0 :1:5 
 ]
-[u S772 . 1 `S735 1 . 1 0 `S744 1 . 1 0 `S751 1 . 1 0 `S758 1 . 1 0 `S767 1 . 1 0 ]
-[v _RXB0CONbits RXB0CONbits `VES772  1 e 1 @3936 ]
+[u S776 . 1 `S739 1 . 1 0 `S748 1 . 1 0 `S755 1 . 1 0 `S762 1 . 1 0 `S771 1 . 1 0 ]
+[v _RXB0CONbits RXB0CONbits `VES776  1 e 1 @3936 ]
 "27766
 [v _RXB0SIDH RXB0SIDH `VEuc  1 e 1 @3937 ]
 "27886
@@ -444,7 +464,7 @@ Off 2
 [v _CANCON CANCON `VEuc  1 e 1 @3951 ]
 "29120
 [v _CIOCON CIOCON `VEuc  1 e 1 @3952 ]
-[s S929 . 1 `uc 1 EWARN 1 0 :1:0 
+[s S933 . 1 `uc 1 EWARN 1 0 :1:0 
 `uc 1 RXWARN 1 0 :1:1 
 `uc 1 TXWARN 1 0 :1:2 
 `uc 1 RXBP 1 0 :1:3 
@@ -454,21 +474,21 @@ Off 2
 `uc 1 RXB0OVFL 1 0 :1:7 
 ]
 "29195
-[s S938 . 1 `uc 1 . 1 0 :7:0 
+[s S942 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_FIFOEMPTY 1 0 :1:7 
 ]
-[s S941 . 1 `uc 1 . 1 0 :7:0 
+[s S945 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 nFIFOEMPTY 1 0 :1:7 
 ]
-[s S944 . 1 `uc 1 . 1 0 :6:0 
+[s S948 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RXBNOVFL 1 0 :1:6 
 `uc 1 FIFOEMPTY 1 0 :1:7 
 ]
-[u S948 . 1 `S929 1 . 1 0 `S938 1 . 1 0 `S941 1 . 1 0 `S944 1 . 1 0 ]
-[v _COMSTATbits COMSTATbits `VES948  1 e 1 @3953 ]
+[u S952 . 1 `S933 1 . 1 0 `S942 1 . 1 0 `S945 1 . 1 0 `S948 1 . 1 0 ]
+[v _COMSTATbits COMSTATbits `VES952  1 e 1 @3953 ]
 "29260
 [v _ECANCON ECANCON `VEuc  1 e 1 @3954 ]
-[s S274 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S278 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
@@ -478,14 +498,14 @@ Off 2
 `uc 1 IRXIE 1 0 :1:7 
 ]
 "29420
-[s S283 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
+[s S287 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
 `uc 1 RXBnIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIE 1 0 :1:4 
 ]
-[u S288 . 1 `S274 1 . 1 0 `S283 1 . 1 0 ]
-[v _PIE5bits PIE5bits `VES288  1 e 1 @3958 ]
-[s S306 . 1 `uc 1 RXB0IF 1 0 :1:0 
+[u S292 . 1 `S278 1 . 1 0 `S287 1 . 1 0 ]
+[v _PIE5bits PIE5bits `VES292  1 e 1 @3958 ]
+[s S310 . 1 `uc 1 RXB0IF 1 0 :1:0 
 `uc 1 RXB1IF 1 0 :1:1 
 `uc 1 TXB0IF 1 0 :1:2 
 `uc 1 TXB1IF 1 0 :1:3 
@@ -495,16 +515,16 @@ Off 2
 `uc 1 IRXIF 1 0 :1:7 
 ]
 "29503
-[s S315 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
+[s S319 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
 `uc 1 RXBnIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIF 1 0 :1:4 
 ]
-[u S320 . 1 `S306 1 . 1 0 `S315 1 . 1 0 ]
-[v _PIR5bits PIR5bits `VES320  1 e 1 @3959 ]
+[u S324 . 1 `S310 1 . 1 0 `S319 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES324  1 e 1 @3959 ]
 "29753
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3965 ]
-[s S1653 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1712 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -514,21 +534,21 @@ Off 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "29883
-[s S1662 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S1721 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :4:1 
 `uc 1 LVDIN 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S1668 . 1 `S1653 1 . 1 0 `S1662 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES1668  1 e 1 @3968 ]
+[u S1727 . 1 `S1712 1 . 1 0 `S1721 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1727  1 e 1 @3968 ]
 "30225
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "30327
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "30439
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-[s S1612 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1746 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -538,7 +558,7 @@ Off 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "30466
-[s S1621 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1755 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -547,8 +567,8 @@ Off 2
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1630 . 1 `S1612 1 . 1 0 `S1621 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1630  1 e 1 @3979 ]
+[u S1764 . 1 `S1746 1 . 1 0 `S1755 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1764  1 e 1 @3979 ]
 "30645
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "30702
@@ -559,7 +579,7 @@ Off 2
 [v _REFOCON REFOCON `VEuc  1 e 1 @3994 ]
 "30935
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
-[s S342 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S346 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 TMR1GIE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -568,13 +588,13 @@ Off 2
 `uc 1 ADIE 1 0 :1:6 
 ]
 "31092
-[s S350 . 1 `uc 1 . 1 0 :4:0 
+[s S354 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[u S354 . 1 `S342 1 . 1 0 `S350 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES354  1 e 1 @3997 ]
-[s S370 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S358 . 1 `S346 1 . 1 0 `S354 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES358  1 e 1 @3997 ]
+[s S374 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 TMR1GIF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -583,21 +603,21 @@ Off 2
 `uc 1 ADIF 1 0 :1:6 
 ]
 "31163
-[s S378 . 1 `uc 1 . 1 0 :4:0 
+[s S382 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
-[u S382 . 1 `S370 1 . 1 0 `S378 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES382  1 e 1 @3998 ]
+[u S386 . 1 `S374 1 . 1 0 `S382 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES386  1 e 1 @3998 ]
 "31792
 [v _BAUDCON1 BAUDCON1 `VEuc  1 e 1 @4007 ]
 "32038
 [v _T1GCON T1GCON `VEuc  1 e 1 @4010 ]
-[s S1185 . 1 `uc 1 . 1 0 :3:0 
+[s S1189 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO_NOT_T1DONE 1 0 :1:3 
 ]
 "32072
-[s S1188 . 1 `uc 1 T1GSS 1 0 :2:0 
+[s S1192 . 1 `uc 1 T1GSS 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nT1DONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -605,22 +625,22 @@ Off 2
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 TMR1GE 1 0 :1:7 
 ]
-[s S1196 . 1 `uc 1 T1GSS0 1 0 :1:0 
+[s S1200 . 1 `uc 1 T1GSS0 1 0 :1:0 
 `uc 1 T1GSS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[s S1201 . 1 `uc 1 . 1 0 :3:0 
+[s S1205 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_T1DONE 1 0 :1:3 
 ]
-[s S1204 . 1 `uc 1 . 1 0 :3:0 
+[s S1208 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 nT1DONE 1 0 :1:3 
 ]
-[u S1207 . 1 `S1185 1 . 1 0 `S1188 1 . 1 0 `S1196 1 . 1 0 `S1201 1 . 1 0 `S1204 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES1207  1 e 1 @4010 ]
+[u S1211 . 1 `S1189 1 . 1 0 `S1192 1 . 1 0 `S1200 1 . 1 0 `S1205 1 . 1 0 `S1208 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES1211  1 e 1 @4010 ]
 "32142
 [v _RCSTA1 RCSTA1 `VEuc  1 e 1 @4011 ]
-[s S1411 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1415 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -630,22 +650,22 @@ Off 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "32197
-[s S1420 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1424 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 ADEN 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1426 . 1 `uc 1 . 1 0 :6:0 
+[s S1430 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S1429 . 1 `uc 1 . 1 0 :6:0 
+[s S1433 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S1432 . 1 `uc 1 . 1 0 :6:0 
+[s S1436 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1435 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S1439 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -654,14 +674,14 @@ Off 2
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S1444 . 1 `uc 1 . 1 0 :5:0 
+[s S1448 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1447 . 1 `S1411 1 . 1 0 `S1420 1 . 1 0 `S1426 1 . 1 0 `S1429 1 . 1 0 `S1432 1 . 1 0 `S1435 1 . 1 0 `S1444 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES1447  1 e 1 @4011 ]
+[u S1451 . 1 `S1415 1 . 1 0 `S1424 1 . 1 0 `S1430 1 . 1 0 `S1433 1 . 1 0 `S1436 1 . 1 0 `S1439 1 . 1 0 `S1448 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES1451  1 e 1 @4011 ]
 "32480
 [v _TXSTA1 TXSTA1 `VEuc  1 e 1 @4012 ]
-[s S1348 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1352 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -671,17 +691,17 @@ Off 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "32525
-[s S1357 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1361 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S1361 . 1 `uc 1 . 1 0 :6:0 
+[s S1365 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S1364 . 1 `uc 1 . 1 0 :6:0 
+[s S1368 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S1367 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1371 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -690,21 +710,73 @@ Off 2
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[u S1376 . 1 `S1348 1 . 1 0 `S1357 1 . 1 0 `S1361 1 . 1 0 `S1364 1 . 1 0 `S1367 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES1376  1 e 1 @4012 ]
+[u S1380 . 1 `S1352 1 . 1 0 `S1361 1 . 1 0 `S1365 1 . 1 0 `S1368 1 . 1 0 `S1371 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES1380  1 e 1 @4012 ]
 "32768
 [v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
 "32806
 [v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
 "32844
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
+"34208
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"34279
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"34383
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S1565 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"34428
+[s S1568 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+"34428
+[s S1572 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+"34428
+[s S1580 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+"34428
+[s S1583 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+"34428
+[s S1586 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+"34428
+[s S1589 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+"34428
+[s S1592 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+"34428
+[u S1595 . 1 `S1565 1 . 1 0 `S1568 1 . 1 0 `S1572 1 . 1 0 `S1580 1 . 1 0 `S1583 1 . 1 0 `S1586 1 . 1 0 `S1589 1 . 1 0 `S1592 1 . 1 0 ]
+"34428
+"34428
+[v _ADCON0bits ADCON0bits `VES1595  1 e 1 @4034 ]
+"34515
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"34535
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "35259
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S1137 . 1 `uc 1 . 1 0 :2:0 
+[s S1141 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "35291
-[s S1140 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1144 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 SOSCEN 1 0 :1:3 
@@ -712,51 +784,51 @@ Off 2
 `uc 1 TMR1CS 1 0 :2:6 
 ]
 "35291
-[s S1147 . 1 `uc 1 . 1 0 :4:0 
+[s S1151 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
 "35291
-[s S1153 . 1 `uc 1 . 1 0 :3:0 
+[s S1157 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1OSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
 "35291
-[u S1158 . 1 `S1137 1 . 1 0 `S1140 1 . 1 0 `S1147 1 . 1 0 `S1153 1 . 1 0 ]
+[u S1162 . 1 `S1141 1 . 1 0 `S1144 1 . 1 0 `S1151 1 . 1 0 `S1157 1 . 1 0 ]
 "35291
 "35291
-[v _T1CONbits T1CONbits `VES1158  1 e 1 @4045 ]
+[v _T1CONbits T1CONbits `VES1162  1 e 1 @4045 ]
 "35368
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "35388
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S171 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S175 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "35456
-[s S173 . 1 `uc 1 . 1 0 :1:0 
+[s S177 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
 "35456
-[s S176 . 1 `uc 1 . 1 0 :2:0 
+[s S180 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
 "35456
-[s S179 . 1 `uc 1 . 1 0 :3:0 
+[s S183 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
 "35456
-[s S182 . 1 `uc 1 . 1 0 :4:0 
+[s S186 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 "35456
-[s S185 . 1 `uc 1 . 1 0 :5:0 
+[s S189 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_CM 1 0 :1:5 
 ]
 "35456
-[s S188 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S192 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -766,7 +838,7 @@ Off 2
 `uc 1 IPEN 1 0 :1:7 
 ]
 "35456
-[s S197 . 1 `uc 1 BOR 1 0 :1:0 
+[s S201 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -774,19 +846,19 @@ Off 2
 `uc 1 CM 1 0 :1:5 
 ]
 "35456
-[u S204 . 1 `S171 1 . 1 0 `S173 1 . 1 0 `S176 1 . 1 0 `S179 1 . 1 0 `S182 1 . 1 0 `S185 1 . 1 0 `S188 1 . 1 0 `S197 1 . 1 0 ]
+[u S208 . 1 `S175 1 . 1 0 `S177 1 . 1 0 `S180 1 . 1 0 `S183 1 . 1 0 `S186 1 . 1 0 `S189 1 . 1 0 `S192 1 . 1 0 `S201 1 . 1 0 ]
 "35456
 "35456
-[v _RCONbits RCONbits `VES204  1 e 1 @4048 ]
+[v _RCONbits RCONbits `VES208  1 e 1 @4048 ]
 "35621
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "35693
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S63 . 1 `uc 1 . 1 0 :7:0 
+[s S67 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "36579
-[s S66 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S70 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 INT3IP 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 INTEDG3 1 0 :1:3 
@@ -796,18 +868,18 @@ Off 2
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "36579
-[s S75 . 1 `uc 1 . 1 0 :1:0 
+[s S79 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT3P 1 0 :1:1 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
 "36579
-[u S81 . 1 `S63 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 ]
+[u S85 . 1 `S67 1 . 1 0 `S70 1 . 1 0 `S79 1 . 1 0 ]
 "36579
 "36579
-[v _INTCON2bits INTCON2bits `VES81  1 e 1 @4081 ]
-[s S104 . 1 `uc 1 RBIF 1 0 :1:0 
+[v _INTCON2bits INTCON2bits `VES85  1 e 1 @4081 ]
+[s S108 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -817,7 +889,7 @@ Off 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "36681
-[s S113 . 1 `uc 1 . 1 0 :1:0 
+[s S117 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -827,15 +899,15 @@ Off 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "36681
-[s S122 . 1 `uc 1 . 1 0 :6:0 
+[s S126 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "36681
-[u S126 . 1 `S104 1 . 1 0 `S113 1 . 1 0 `S122 1 . 1 0 ]
+[u S130 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S126 1 . 1 0 ]
 "36681
 "36681
-[v _INTCONbits INTCONbits `VES126  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES130  1 e 1 @4082 ]
 "99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -851,18 +923,18 @@ Off 2
 [v _Systeme Systeme `i  1 e 2 0 ]
 "51
 [v _Batterie Batterie `i  1 e 2 0 ]
-"56
+"58
 [v _etat etat `i  1 e 2 0 ]
 "54 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _WakeUpInterruptHandler WakeUpInterruptHandler `*.37(v  1 s 2 WakeUpInterruptHandler ]
-[s S1286 . 1 `uc 1 perr 1 0 :1:0 
+[s S1290 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "52 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/eusart1.c
-[u S1291 . 1 `S1286 1 . 1 0 `uc 1 status 1 0 ]
-[v _eusart1RxLastError eusart1RxLastError `VES1291  1 e 1 0 ]
+[u S1295 . 1 `S1290 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusart1RxLastError eusart1RxLastError `VES1295  1 e 1 0 ]
 "58
 [v _EUSART1_FramingErrorHandler EUSART1_FramingErrorHandler `*.37(v  1 e 2 0 ]
 "59
@@ -873,18 +945,20 @@ Off 2
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"61 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"64 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"111
+"147
+[v main@charge charge `ul  1 a 4 1 ]
+"118
 [v main@batterie batterie `uc  1 a 1 0 ]
-[s S536 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
-"75
-[u S548 . 14 `S536 1 frame 14 0 `[14]uc 1 array 14 0 ]
-[v main@rxCan rxCan `S548  1 a 14 15 ]
-"74
-[v main@txCan txCan `S548  1 a 14 1 ]
-"175
+[s S540 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
+"82
+[u S552 . 14 `S540 1 frame 14 0 `[14]uc 1 array 14 0 ]
+[v main@rxCan rxCan `S552  1 a 14 19 ]
+"81
+[v main@txCan txCan `S552  1 a 14 5 ]
+"194
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -900,9 +974,9 @@ Off 2
 {
 "1523
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 27 ]
-[s S2233 _IO_FILE 0 ]
+[s S2344 _IO_FILE 0 ]
 "1520
-[v vfprintf@fp fp `*.2S2233  1 p 2 21 ]
+[v vfprintf@fp fp `*.2S2344  1 p 2 21 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 23 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 25 ]
 "1543
@@ -910,8 +984,8 @@ Off 2
 "1007
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[s S2233 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.2S2233  1 p 2 15 ]
+[s S2344 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.2S2344  1 p 2 15 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 17 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 19 ]
 "1517
@@ -920,9 +994,9 @@ Off 2
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 6 ]
-[u S2211 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2214 _IO_FILE 11 `S2211 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.2S2214  1 p 2 8 ]
+[u S2322 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2325 _IO_FILE 11 `S2322 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S2325  1 p 2 8 ]
 "24
 } 0
 "146 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/eusart1.c
@@ -942,10 +1016,20 @@ Off 2
 [v EUSART1_Write@txData txData `uc  1 a 1 4 ]
 "139
 } 0
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 12 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 4 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 8 ]
+"129
+} 0
 "50 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"59
+"60
 } 0
 "64 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
@@ -963,10 +1047,10 @@ Off 2
 {
 "90
 } 0
-"61 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/mcc.c
+"62 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"71
+"72
 } 0
 "52 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
@@ -1007,7 +1091,12 @@ Off 2
 [v ECAN_SetWakeUpInterruptHandler@handler handler `*.37(v  1 p 2 4 ]
 "442
 } 0
-"165
+"62 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"81
+} 0
+"165 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _CAN_transmit CAN_transmit `(uc  1 e 1 0 ]
 {
 "169
@@ -1018,10 +1107,10 @@ Off 2
 [v CAN_transmit@tempEIDL tempEIDL `uc  1 a 1 25 ]
 "166
 [v CAN_transmit@tempEIDH tempEIDH `uc  1 a 1 24 ]
-[s S536 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
+[s S540 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
 "165
-[u S548 . 14 `S536 1 frame 14 0 `[14]uc 1 array 14 0 ]
-[v CAN_transmit@tempCanMsg tempCanMsg `*.39S548  1 p 2 22 ]
+[u S552 . 14 `S540 1 frame 14 0 `[14]uc 1 array 14 0 ]
+[v CAN_transmit@tempCanMsg tempCanMsg `*.39S552  1 p 2 22 ]
 "241
 } 0
 "402
@@ -1043,10 +1132,10 @@ Off 2
 {
 "245
 [v CAN_receive@returnValue returnValue `uc  1 a 1 25 ]
-[s S536 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
+[s S540 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
 "243
-[u S548 . 14 `S536 1 frame 14 0 `[14]uc 1 array 14 0 ]
-[v CAN_receive@tempCanMsg tempCanMsg `*.39S548  1 p 2 23 ]
+[u S552 . 14 `S540 1 frame 14 0 `[14]uc 1 array 14 0 ]
+[v CAN_receive@tempCanMsg tempCanMsg `*.39S552  1 p 2 23 ]
 "303
 } 0
 "389
@@ -1084,6 +1173,15 @@ Off 2
 [v convertReg2ExtendedCANid@tempRXBn_EIDH tempRXBn_EIDH `uc  1 a 1 12 ]
 "387
 } 0
+"108 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/adc.c
+[v _ADC_GetConversion ADC_GetConversion `(us  1 e 2 0 ]
+{
+[v ADC_GetConversion@channel channel `E12197  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E12197  1 a 1 wreg ]
+"111
+[v ADC_GetConversion@channel channel `E12197  1 a 1 8 ]
+"127
+} 0
 "58 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
 {
@@ -1112,10 +1210,10 @@ Off 2
 {
 "192
 } 0
-"57 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
+"60 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _timer_1s timer_1s `(v  1 e 1 0 ]
 {
-"59
+"62
 } 0
 "444 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\mcc_generated_files/ecan.c
 [v _ECAN_WAKI_ISR ECAN_WAKI_ISR `(v  1 e 1 0 ]

@@ -20333,6 +20333,32 @@ extern void (*TMR1_InterruptHandler)(void);
 void TMR1_DefaultInterruptHandler(void);
 # 56 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/adc.h" 1
+# 72 "./mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+# 86 "./mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_CTMU = 0x1C,
+    channel_Temp_diode = 0x1D,
+    channel_Vdd_core = 0x1E,
+    channel_1_024V_bandgap = 0x1F,
+    channel_AN8 = 0x8
+} adc_channel_t;
+# 128 "./mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 157 "./mcc_generated_files/adc.h"
+void ADC_StartConversion(adc_channel_t channel);
+# 189 "./mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 222 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 252 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 280 "./mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 57 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
 typedef union {
@@ -20364,7 +20390,7 @@ void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 57 "./mcc_generated_files/mcc.h" 2
+# 58 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/ecan.h" 1
 # 62 "./mcc_generated_files/ecan.h"
@@ -20405,10 +20431,10 @@ uint8_t CAN_isTXErrorPassive(void);
 void ECAN_SetWakeUpInterruptHandler(void (*handler)(void));
 # 331 "./mcc_generated_files/ecan.h"
 void ECAN_WAKI_ISR(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-# 73 "./mcc_generated_files/mcc.h"
+# 59 "./mcc_generated_files/mcc.h" 2
+# 74 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "./mcc_generated_files/mcc.h"
+# 87 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
 # 44 "main.c" 2
 
@@ -20419,11 +20445,14 @@ int Switch = 0;
 int Protection = 0;
 int Systeme = 0;
 int Batterie = 0;
+uint8_t charge_LSB = 0;
+uint8_t charge_MSB = 0;
 
 enum etat {
     OffSwitch, On, Off
 };
 int etat = Off;
+
 void timer_1s(void) {
     flag_timer_1s = 1;
 }
@@ -20441,11 +20470,15 @@ void main(void) {
 
     RXB0CON = 0x60;
 
+
+
+
+
     uCAN_MSG txCan;
     uCAN_MSG rxCan;
 
     txCan.frame.id = 0x1A0;
-    txCan.frame.dlc = 1;
+    txCan.frame.dlc = 3;
     txCan.frame.data0 = 0;
 
     rxCan.frame.id = 0;
@@ -20473,14 +20506,16 @@ void main(void) {
                 }
             } else if (rxCan.frame.id == 0x120) {
                 if (rxCan.frame.data0 != 0x00) {
-                    Systeme = 1;
-                } else {
                     Systeme = 0;
+                } else {
+                    Systeme = 1;
                 }
             } else if (rxCan.frame.id == 0x180) {
                 uint8_t batterie = rxCan.frame.data0;
                 if (batterie <= 2) {
                     Batterie = 0;
+                } else if (batterie <= 20 || batterie >= 2) {
+                    Batterie = 2;
                 } else {
                     Batterie = 1;
                 }
@@ -20488,21 +20523,32 @@ void main(void) {
         }
 
 
+        if (PORTAbits.RA0 == 1) {
+            Switch = 0;
+        } else {
+            Switch = 1;
+        }
+
+
         switch (etat) {
             case On:
                 do { LATCbits.LATC2 = 0; } while(0);
-                do { LATCbits.LATC3 = 1; } while(0);
+                if (Batterie == 2) {
+                    do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0);
+                }else {
+                    do { LATCbits.LATC3 = 1; } while(0);
+                }
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0xFF;
+                    uint32_t charge = ADC_GetConversion(channel_AN8);
+                    charge = (charge * 300);
+                    charge = (charge / 4096);
+                    txCan.frame.data1 = charge >> 8;
+                    txCan.frame.data2 = charge;
                     CAN_transmit(&txCan);
                     flag_timer_1s = 0;
                 }
 
-                if (PORTAbits.RA0 == 1) {
-                    Switch = 0;
-                } else {
-                    Switch = 1;
-                }
 
                 if (Protection == 1 || Systeme == 0 || Batterie == 0) {
                     etat = Off;
@@ -20538,7 +20584,6 @@ void main(void) {
                 } else if (Switch == 1) {
                     etat = On;
                 }
-
                 break;
         }
     }
