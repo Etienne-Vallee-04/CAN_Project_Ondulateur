@@ -73,9 +73,11 @@ void main(void) {
     INTERRUPT_PeripheralInterruptEnable();
 
     RXB0CON = 0x60; // Accept all messages
-    //    RXM0SIDH = 0x07
+    
+    //    RXM0SIDH = 0x07 //mask
     //    RXM0SIDL = 0x2F
-    //    RXF0SIDH = 0x01
+    
+    //    RXF0SIDH = 0x01 //filtre
     //    RXF0SIDL = 0x00
 
     uCAN_MSG txCan;
@@ -117,11 +119,11 @@ void main(void) {
             } else if (rxCan.frame.id == 0x180) {//Batterie donnée
                 uint8_t batterie = rxCan.frame.data0;
                 if (batterie <= 2) {
-                    Batterie = 0;
+                    Batterie = 0; // batterie chargée
                 } else if (batterie <= 20 || batterie >= 2) {
-                    Batterie = 2;
+                    Batterie = 2;//niveau de batterie faible
                 } else {
-                    Batterie = 1;
+                    Batterie = 1; //batterie morte
                 }
             }
         }
@@ -136,12 +138,14 @@ void main(void) {
         //Envoyer l'état de l'ondulaire avec une Machine à État
         switch (etat) {
             case On://transmisssion avec les autres noeuds
+                //afficher leds
                 IO_RC2_SetLow(); //led verte allumée
                 if (Batterie == 2) {//avertissement batterie faible
                     IO_RC3_Toggle();
                 }else {
                     IO_RC3_SetHigh();
                 }
+                //transmission à chaque seconde
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0xFF; //ON
                     uint32_t charge = ADC_GetConversion(channel_AN8); //convertir la valeur de la charge
@@ -162,6 +166,7 @@ void main(void) {
                 break;
 
             case Off://sans impact de la switch
+                //afficher leds
                 IO_RC2_SetHigh(); //led rouge allumée
                 IO_RC3_SetLow();
                 //conditions de changement d'état
@@ -173,7 +178,9 @@ void main(void) {
                     }
                 }
                 break;
+                
             case OffSwitch://impact de la switch
+                //afficher leds
                 IO_RC2_SetHigh(); //led rouge allumée
                 IO_RC3_SetLow();
                 //envoie de l'état
