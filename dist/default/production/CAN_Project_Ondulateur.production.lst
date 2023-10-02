@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Mon Oct 02 12:13:55 2023
+                                                                                               Mon Oct 02 12:27:37 2023
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F25K80
@@ -560,7 +560,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    546 ;;
    547 ;; *************** function _main *****************
    548 ;; Defined at:
-   549 ;;		line 64 in file "main.c"
+   549 ;;		line 41 in file "main.c"
    550 ;; Parameters:    Size  Location     Type
    551 ;;		None
    552 ;; Auto vars:     Size  Location     Type
@@ -606,27 +606,27 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    587   000078                     _main:
    588                           	callstack 24
    589   000078                     
-   590                           ;main.c: 66:     SYSTEM_Initialize();
+   590                           ;main.c: 43:     SYSTEM_Initialize();
    591   000078  ECAC  F007         	call	_SYSTEM_Initialize	;wreg free
    592                           
-   593                           ;main.c: 68:     TMR1_SetInterruptHandler(timer_1s);
+   593                           ;main.c: 45:     TMR1_SetInterruptHandler(timer_1s);
    594   00007C  0EEE               	movlw	low _timer_1s
    595   00007E  6E05               	movwf	TMR1_SetInterruptHandler@InterruptHandler^0,c
    596   000080  0E0F               	movlw	high _timer_1s
    597   000082  6E06               	movwf	(TMR1_SetInterruptHandler@InterruptHandler+1)^0,c
    598   000084  ECDE  F007         	call	_TMR1_SetInterruptHandler	;wreg free
    599   000088                     
-   600                           ;main.c: 70:     (INTCONbits.GIE = 1);
+   600                           ;main.c: 47:     (INTCONbits.GIE = 1);
    601   000088  8EF2               	bsf	242,7,c	;volatile
    602   00008A                     
-   603                           ;main.c: 73:     (INTCONbits.PEIE = 1);
+   603                           ;main.c: 50:     (INTCONbits.PEIE = 1);
    604   00008A  8CF2               	bsf	242,6,c	;volatile
    605   00008C                     
-   606                           ;main.c: 75:     RXB0CON = 0x60;
+   606                           ;main.c: 52:     RXB0CON = 0x60;
    607   00008C  0E60               	movlw	96
    608   00008E  6E60               	movwf	96,c	;volatile
    609   000090                     
-   610                           ;main.c: 83:     uCAN_MSG txCan;;main.c: 84:     uCAN_MSG rxCan;;main.c: 86:     txCan.f
+   610                           ;main.c: 59:     uCAN_MSG txCan;;main.c: 60:     uCAN_MSG rxCan;;main.c: 62:     txCan.f
       +                          rame.id = 0x1A0;
    611   000090  0EA0               	movlw	160
    612   000092  0100               	movlb	0	; () banked
@@ -639,17 +639,17 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    619   0000A0  6F69               	movwf	(main@txCan+4)& (0+255),b
    620   0000A2                     
    621                           ; BSR set to: 0
-   622                           ;main.c: 87:     txCan.frame.dlc = 3;
+   622                           ;main.c: 63:     txCan.frame.dlc = 3;
    623   0000A2  0E03               	movlw	3
    624   0000A4  6F6A               	movwf	(main@txCan+5)& (0+255),b
    625   0000A6                     
    626                           ; BSR set to: 0
-   627                           ;main.c: 88:     txCan.frame.data0 = 0;
+   627                           ;main.c: 64:     txCan.frame.data0 = 0;
    628   0000A6  0E00               	movlw	0
    629   0000A8  6F6B               	movwf	(main@txCan+6)& (0+255),b
    630   0000AA                     
    631                           ; BSR set to: 0
-   632                           ;main.c: 90:     rxCan.frame.id = 0;
+   632                           ;main.c: 66:     rxCan.frame.id = 0;
    633   0000AA  0E00               	movlw	0
    634   0000AC  6F74               	movwf	(main@rxCan+1)& (0+255),b
    635   0000AE  0E00               	movlw	0
@@ -660,17 +660,17 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    640   0000B8  6F77               	movwf	(main@rxCan+4)& (0+255),b
    641   0000BA                     
    642                           ; BSR set to: 0
-   643                           ;main.c: 91:     rxCan.frame.dlc = 0;
+   643                           ;main.c: 67:     rxCan.frame.dlc = 0;
    644   0000BA  0E00               	movlw	0
    645   0000BC  6F78               	movwf	(main@rxCan+5)& (0+255),b
    646   0000BE                     
    647                           ; BSR set to: 0
-   648                           ;main.c: 92:     rxCan.frame.data0 = 0;
+   648                           ;main.c: 68:     rxCan.frame.data0 = 0;
    649   0000BE  0E00               	movlw	0
    650   0000C0  6F79               	movwf	(main@rxCan+6)& (0+255),b
    651   0000C2                     l2860:
    652                           
-   653                           ;main.c: 97:         if (CAN_receive(&rxCan) >= 1) {
+   653                           ;main.c: 72:         if (CAN_receive(&rxCan) >= 1) {
    654   0000C2  0E73               	movlw	low main@rxCan
    655   0000C4  6E18               	movwf	CAN_receive@tempCanMsg^0,c
    656   0000C6  0E00               	movlw	high main@rxCan
@@ -684,7 +684,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    664   0000DA  EFD3  F000         	goto	l2888
    665   0000DE                     u1260:
    666   0000DE                     
-   667                           ;main.c: 98:             if (rxCan.frame.id == 0x100) {
+   667                           ;main.c: 73:             if (rxCan.frame.id == 0x100) {
    668   0000DE  0100               	movlb	0	; () banked
    669   0000E0  0575               	decf	(main@rxCan+2)& (0+255),w,b
    670   0000E2  1174               	iorwf	(main@rxCan+1)& (0+255),w,b
@@ -698,7 +698,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    678   0000F6                     u1270:
    679   0000F6                     
    680                           ; BSR set to: 0
-   681                           ;main.c: 99:                 if (rxCan.frame.data0 != 0x00) {
+   681                           ;main.c: 74:                 if (rxCan.frame.data0 != 0x00) {
    682   0000F6  5179               	movf	(main@rxCan+6)& (0+255),w,b
    683   0000F8  B4D8               	btfsc	status,2,c
    684   0000FA  EF81  F000         	goto	u1281
@@ -708,18 +708,18 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    688   000106                     u1280:
    689   000106                     
    690                           ; BSR set to: 0
-   691                           ;main.c: 100:                     Protection = 1;
+   691                           ;main.c: 75:                     Protection = 1;
    692   000106  0E00               	movlw	0
    693   000108  6E26               	movwf	(_Protection+1)^0,c
    694   00010A  0E01               	movlw	1
    695   00010C  6E25               	movwf	_Protection^0,c
    696                           
-   697                           ;main.c: 101:                 } else {
+   697                           ;main.c: 76:                 } else {
    698   00010E  EFD3  F000         	goto	l2888
    699   000112                     l2868:
    700                           
    701                           ; BSR set to: 0
-   702                           ;main.c: 102:                     Protection = 0;
+   702                           ;main.c: 77:                     Protection = 0;
    703   000112  0E00               	movlw	0
    704   000114  6E26               	movwf	(_Protection+1)^0,c
    705   000116  0E00               	movlw	0
@@ -742,7 +742,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    722   000138                     u1290:
    723   000138                     
    724                           ; BSR set to: 0
-   725                           ;main.c: 105:                 if (rxCan.frame.data0 != 0x00) {
+   725                           ;main.c: 80:                 if (rxCan.frame.data0 != 0x00) {
    726   000138  5179               	movf	(main@rxCan+6)& (0+255),w,b
    727   00013A  B4D8               	btfsc	status,2,c
    728   00013C  EFA2  F000         	goto	u1301
@@ -752,18 +752,18 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    732   000148                     u1300:
    733   000148                     
    734                           ; BSR set to: 0
-   735                           ;main.c: 106:                     Systeme = 0;
+   735                           ;main.c: 81:                     Systeme = 0;
    736   000148  0E00               	movlw	0
    737   00014A  6E24               	movwf	(_Systeme+1)^0,c
    738   00014C  0E00               	movlw	0
    739   00014E  6E23               	movwf	_Systeme^0,c
    740                           
-   741                           ;main.c: 107:                 } else {
+   741                           ;main.c: 82:                 } else {
    742   000150  EFD3  F000         	goto	l2888
    743   000154                     l2876:
    744                           
    745                           ; BSR set to: 0
-   746                           ;main.c: 108:                     Systeme = 1;
+   746                           ;main.c: 83:                     Systeme = 1;
    747   000154  0E00               	movlw	0
    748   000156  6E24               	movwf	(_Systeme+1)^0,c
    749   000158  0E01               	movlw	1
@@ -786,11 +786,11 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    766   00017A                     u1310:
    767   00017A                     
    768                           ; BSR set to: 0
-   769                           ;main.c: 111:                 uint8_t batterie = rxCan.frame.data0;
+   769                           ;main.c: 86:                 uint8_t batterie = rxCan.frame.data0;
    770   00017A  C079  F060         	movff	main@rxCan+6,main@batterie
    771   00017E                     
    772                           ; BSR set to: 0
-   773                           ;main.c: 112:                 if (batterie <= 2) {
+   773                           ;main.c: 87:                 if (batterie <= 2) {
    774   00017E  0E03               	movlw	3
    775   000180  6160               	cpfslt	main@batterie& (0+255),b
    776   000182  EFC5  F000         	goto	u1321
@@ -800,18 +800,18 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    780   00018E                     u1320:
    781   00018E                     
    782                           ; BSR set to: 0
-   783                           ;main.c: 113:                     Batterie = 0;
+   783                           ;main.c: 88:                     Batterie = 0;
    784   00018E  0E00               	movlw	0
    785   000190  6E22               	movwf	(_Batterie+1)^0,c
    786   000192  0E00               	movlw	0
    787   000194  6E21               	movwf	_Batterie^0,c
    788                           
-   789                           ;main.c: 114:                 } else {
+   789                           ;main.c: 89:                 } else {
    790   000196  EFD3  F000         	goto	l2888
    791   00019A                     l2886:
    792                           
    793                           ; BSR set to: 0
-   794                           ;main.c: 115:                     Batterie = 1;
+   794                           ;main.c: 90:                     Batterie = 1;
    795   00019A  0E00               	movlw	0
    796   00019C  6E22               	movwf	(_Batterie+1)^0,c
    797   00019E  0E01               	movlw	1
@@ -820,7 +820,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    800   0001A6                     l636:
    801   0001A6                     l2888:
    802                           
-   803                           ;main.c: 121:         if (PORTAbits.RA0 == 1) {
+   803                           ;main.c: 95:         if (PORTAbits.RA0 == 1) {
    804   0001A6  A080               	btfss	128,0,c	;volatile
    805   0001A8  EFD8  F000         	goto	u1331
    806   0001AC  EFDA  F000         	goto	u1330
@@ -828,17 +828,17 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    808   0001B0  EFE0  F000         	goto	l2892
    809   0001B4                     u1330:
    810   0001B4                     
-   811                           ;main.c: 122:             Switch = 0;
+   811                           ;main.c: 96:             Switch = 0;
    812   0001B4  0E00               	movlw	0
    813   0001B6  6E28               	movwf	(_Switch+1)^0,c
    814   0001B8  0E00               	movlw	0
    815   0001BA  6E27               	movwf	_Switch^0,c
    816                           
-   817                           ;main.c: 123:         } else {
+   817                           ;main.c: 97:         } else {
    818   0001BC  EFD6  F001         	goto	l2956
    819   0001C0                     l2892:
    820                           
-   821                           ;main.c: 124:             Switch = 1;
+   821                           ;main.c: 98:             Switch = 1;
    822   0001C0  0E00               	movlw	0
    823   0001C2  6E28               	movwf	(_Switch+1)^0,c
    824   0001C4  0E01               	movlw	1
@@ -848,7 +848,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    828   0001CC  948B               	bcf	139,2,c	;volatile
    829   0001CE  868B               	bsf	139,3,c	;volatile
    830   0001D0                     
-   831                           ;main.c: 135:                 if (flag_timer_1s == 1) {
+   831                           ;main.c: 109:                 if (flag_timer_1s == 1) {
    832   0001D0  0431               	decf	_flag_timer_1s^0,w,c
    833   0001D2  A4D8               	btfss	status,2,c
    834   0001D4  EFEE  F000         	goto	u1341
@@ -857,12 +857,12 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    837   0001DC  EF3D  F001         	goto	l2910
    838   0001E0                     u1340:
    839   0001E0                     
-   840                           ;main.c: 136:                     txCan.frame.data0 = 0xFF;
+   840                           ;main.c: 110:                     txCan.frame.data0 = 0xFF;
    841   0001E0  0100               	movlb	0	; () banked
    842   0001E2  696B               	setf	(main@txCan+6)& (0+255),b
    843   0001E4                     
    844                           ; BSR set to: 0
-   845                           ;main.c: 137:                     uint32_t charge = ADC_GetConversion(channel_AN8);
+   845                           ;main.c: 111:                     uint32_t charge = ADC_GetConversion(channel_AN8);
    846   0001E4  0E08               	movlw	8
    847   0001E6  ECFF  F006         	call	_ADC_GetConversion
    848   0001EA  C005  F061         	movff	?_ADC_GetConversion,main@charge
@@ -871,7 +871,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    851   0001F4  6B63               	clrf	(main@charge+2)& (0+255),b
    852   0001F6  6B64               	clrf	(main@charge+3)& (0+255),b
    853                           
-   854                           ;main.c: 138:                     charge = (charge * 300);
+   854                           ;main.c: 112:                     charge = (charge * 300);
    855   0001F8  C061  F005         	movff	main@charge,___lmul@multiplier
    856   0001FC  C062  F006         	movff	main@charge+1,___lmul@multiplier+1
    857   000200  C063  F007         	movff	main@charge+2,___lmul@multiplier+2
@@ -890,7 +890,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    870   000224  C007  F063         	movff	?___lmul+2,main@charge+2
    871   000228  C008  F064         	movff	?___lmul+3,main@charge+3
    872   00022C                     
-   873                           ;main.c: 139:                     charge = (charge / 4096);
+   873                           ;main.c: 113:                     charge = (charge / 4096);
    874   00022C  C061  F01D         	movff	main@charge,??_main
    875   000230  C062  F01E         	movff	main@charge+1,??_main+1
    876   000234  C063  F01F         	movff	main@charge+2,??_main+2
@@ -911,25 +911,25 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    891   00025A  C01F  F063         	movff	??_main+2,main@charge+2
    892   00025E  C020  F064         	movff	??_main+3,main@charge+3
    893   000262                     
-   894                           ;main.c: 140:                     txCan.frame.data1 = charge >> 8;
+   894                           ;main.c: 114:                     txCan.frame.data1 = charge >> 8;
    895   000262  C062  F06C         	movff	main@charge+1,main@txCan+7
    896   000266                     
-   897                           ;main.c: 141:                     txCan.frame.data2 = charge;
+   897                           ;main.c: 115:                     txCan.frame.data2 = charge;
    898   000266  C061  F06D         	movff	main@charge,main@txCan+8
    899   00026A                     
-   900                           ;main.c: 142:                     CAN_transmit(&txCan);
+   900                           ;main.c: 116:                     CAN_transmit(&txCan);
    901   00026A  0E65               	movlw	low main@txCan
    902   00026C  6E17               	movwf	CAN_transmit@tempCanMsg^0,c
    903   00026E  0E00               	movlw	high main@txCan
    904   000270  6E18               	movwf	(CAN_transmit@tempCanMsg+1)^0,c
    905   000272  ECF4  F001         	call	_CAN_transmit	;wreg free
    906   000276                     
-   907                           ;main.c: 143:                     flag_timer_1s = 0;
+   907                           ;main.c: 117:                     flag_timer_1s = 0;
    908   000276  0E00               	movlw	0
    909   000278  6E31               	movwf	_flag_timer_1s^0,c
    910   00027A                     l2910:
    911                           
-   912                           ;main.c: 147:                 if (Protection == 1 || Systeme == 0) {
+   912                           ;main.c: 121:                 if (Protection == 1 || Systeme == 0) {
    913   00027A  0425               	decf	_Protection^0,w,c
    914   00027C  1026               	iorwf	(_Protection+1)^0,w,c
    915   00027E  B4D8               	btfsc	status,2,c
@@ -948,13 +948,13 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    928   00029E                     u1370:
    929   00029E                     l2914:
    930                           
-   931                           ;main.c: 148:                     etat = Off;
+   931                           ;main.c: 122:                     etat = Off;
    932   00029E  0E00               	movlw	0
    933   0002A0  6E3C               	movwf	(_etat+1)^0,c
    934   0002A2  0E02               	movlw	2
    935   0002A4  6E3B               	movwf	_etat^0,c
    936                           
-   937                           ;main.c: 149:                 } else if (Switch == 0 || Batterie == 0) {
+   937                           ;main.c: 123:                 } else if (Switch == 0 || Batterie == 0) {
    938   0002A6  EF61  F000         	goto	l2860
    939   0002AA                     l2916:
    940   0002AA  5027               	movf	_Switch^0,w,c
@@ -975,7 +975,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    955   0002CE                     u1390:
    956   0002CE                     l2920:
    957                           
-   958                           ;main.c: 150:                     etat = OFF_Passif;
+   958                           ;main.c: 124:                     etat = OFF_Passif;
    959   0002CE  0E00               	movlw	0
    960   0002D0  6E3C               	movwf	(_etat+1)^0,c
    961   0002D2  0E00               	movlw	0
@@ -985,7 +985,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    965   0002DA  848B               	bsf	139,2,c	;volatile
    966   0002DC  968B               	bcf	139,3,c	;volatile
    967   0002DE                     
-   968                           ;main.c: 159:                 if (Protection == 0 && Systeme == 1) {
+   968                           ;main.c: 133:                 if (Protection == 0 && Systeme == 1) {
    969   0002DE  5025               	movf	_Protection^0,w,c
    970   0002E0  1026               	iorwf	(_Protection+1)^0,w,c
    971   0002E2  A4D8               	btfss	status,2,c
@@ -1003,7 +1003,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    983   0002FE  EF61  F000         	goto	l2860
    984   000302                     u1410:
    985   000302                     
-   986                           ;main.c: 160:                     if (Switch == 1 && Batterie == 1) {
+   986                           ;main.c: 134:                     if (Switch == 1 && Batterie == 1) {
    987   000302  0427               	decf	_Switch^0,w,c
    988   000304  1028               	iorwf	(_Switch+1)^0,w,c
    989   000306  A4D8               	btfss	status,2,c
@@ -1022,19 +1022,19 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   1002   000326                     u1430:
   1003   000326                     l2930:
   1004                           
-  1005                           ;main.c: 161:                         etat = On;
+  1005                           ;main.c: 135:                         etat = On;
   1006   000326  0E00               	movlw	0
   1007   000328  6E3C               	movwf	(_etat+1)^0,c
   1008   00032A  0E01               	movlw	1
   1009   00032C  6E3B               	movwf	_etat^0,c
   1010                           
-  1011                           ;main.c: 162:                     } else {
+  1011                           ;main.c: 136:                     } else {
   1012   00032E  EF61  F000         	goto	l2860
   1013   000332                     l670:
   1014   000332  848B               	bsf	139,2,c	;volatile
   1015   000334  968B               	bcf	139,3,c	;volatile
   1016   000336                     
-  1017                           ;main.c: 173:                 if (flag_timer_1s == 1) {
+  1017                           ;main.c: 147:                 if (flag_timer_1s == 1) {
   1018   000336  0431               	decf	_flag_timer_1s^0,w,c
   1019   000338  A4D8               	btfss	status,2,c
   1020   00033A  EFA1  F001         	goto	u1441
@@ -1043,25 +1043,25 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   1023   000342  EFAE  F001         	goto	l2942
   1024   000346                     u1440:
   1025   000346                     
-  1026                           ;main.c: 174:                     txCan.frame.data0 = 0x00;
+  1026                           ;main.c: 148:                     txCan.frame.data0 = 0x00;
   1027   000346  0E00               	movlw	0
   1028   000348  0100               	movlb	0	; () banked
   1029   00034A  6F6B               	movwf	(main@txCan+6)& (0+255),b
   1030   00034C                     
   1031                           ; BSR set to: 0
-  1032                           ;main.c: 175:                     CAN_transmit(&txCan);
+  1032                           ;main.c: 149:                     CAN_transmit(&txCan);
   1033   00034C  0E65               	movlw	low main@txCan
   1034   00034E  6E17               	movwf	CAN_transmit@tempCanMsg^0,c
   1035   000350  0E00               	movlw	high main@txCan
   1036   000352  6E18               	movwf	(CAN_transmit@tempCanMsg+1)^0,c
   1037   000354  ECF4  F001         	call	_CAN_transmit	;wreg free
   1038   000358                     
-  1039                           ;main.c: 176:                     flag_timer_1s = 0;
+  1039                           ;main.c: 150:                     flag_timer_1s = 0;
   1040   000358  0E00               	movlw	0
   1041   00035A  6E31               	movwf	_flag_timer_1s^0,c
   1042   00035C                     l2942:
   1043                           
-  1044                           ;main.c: 179:                 if (Protection == 1 || Systeme == 0) {
+  1044                           ;main.c: 153:                 if (Protection == 1 || Systeme == 0) {
   1045   00035C  0425               	decf	_Protection^0,w,c
   1046   00035E  1026               	iorwf	(_Protection+1)^0,w,c
   1047   000360  B4D8               	btfsc	status,2,c
@@ -4099,7 +4099,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   3910                           
   3911 ;; *************** function _timer_1s *****************
   3912 ;; Defined at:
-  3913 ;;		line 60 in file "main.c"
+  3913 ;;		line 37 in file "main.c"
   3914 ;; Parameters:    Size  Location     Type
   3915 ;;		None
   3916 ;; Auto vars:     Size  Location     Type
@@ -4138,7 +4138,7 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
   3944   000FEE                     _timer_1s:
   3945                           	callstack 24
   3946   000FEE                     
-  3947                           ;main.c: 61:     flag_timer_1s = 1;
+  3947                           ;main.c: 38:     flag_timer_1s = 1;
   3948   000FEE  0E01               	movlw	1
   3949   000FF0  6E31               	movwf	_flag_timer_1s^0,c
   3950   000FF2  0012               	return		;funcret
@@ -4925,7 +4925,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Mon Oct 02 12:13:55 2023
+Symbol Table                                                                                   Mon Oct 02 12:27:37 2023
 
                                                l25 0F74                                                 l28 0FBA  
                                                l53 0F2E                                                 l75 0FF6  

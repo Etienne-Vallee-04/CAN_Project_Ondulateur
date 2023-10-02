@@ -7,7 +7,7 @@
 # 1 "C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 44 "main.c"
+# 21 "main.c"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
@@ -20436,7 +20436,7 @@ void ECAN_WAKI_ISR(void);
 void SYSTEM_Initialize(void);
 # 87 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 44 "main.c" 2
+# 21 "main.c" 2
 
 
 
@@ -20475,7 +20475,6 @@ void main(void) {
 
 
 
-
     uCAN_MSG txCan;
     uCAN_MSG rxCan;
 
@@ -20488,7 +20487,6 @@ void main(void) {
     rxCan.frame.data0 = 0;
 
     while (1) {
-
 
         if (CAN_receive(&rxCan) >= 1) {
             if (rxCan.frame.id == 0x100) {
@@ -20512,7 +20510,6 @@ void main(void) {
                 }
             }
         }
-
 
         if (PORTAbits.RA0 == 1) {
             Switch = 0;

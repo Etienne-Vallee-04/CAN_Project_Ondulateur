@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"58 main.c
-[; ;main.c: 58: int etat = Off;
+"35 main.c
+[; ;main.c: 35: int etat = Off;
 [c E12620 0 1 2 .. ]
 [n E12620 etat OFF_Passif On Off  ]
 [p mainexit ]
@@ -74,8 +74,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30466
 [; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 30466: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
 [v _LATCbits `VS1160 ~T0 @X0 0 e@3979 ]
-"137 main.c
-[; ;main.c: 137:                     uint32_t charge = ADC_GetConversion(channel_AN8);
+"111 main.c
+[; ;main.c: 111:                     uint32_t charge = ADC_GetConversion(channel_AN8);
 [c E12536 28 29 30 31 8 .. ]
 [n E12536 . channel_CTMU channel_Temp_diode channel_Vdd_core channel_1_024V_bandgap channel_AN8  ]
 "252 ./mcc_generated_files/adc.h
@@ -1458,421 +1458,421 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37211
 [; ;C:/Users/e2134485/.mchp_packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f25k80.h: 37211: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"47 main.c
-[; ;main.c: 47: uint8_t flag_timer_1s = 0;
+"24 main.c
+[; ;main.c: 24: uint8_t flag_timer_1s = 0;
 [v _flag_timer_1s `uc ~T0 @X0 1 e ]
 [i _flag_timer_1s
 -> -> 0 `i `uc
 ]
-"48
-[; ;main.c: 48: int Switch = 0;
+"25
+[; ;main.c: 25: int Switch = 0;
 [v _Switch `i ~T0 @X0 1 e ]
 [i _Switch
 -> 0 `i
 ]
-"49
-[; ;main.c: 49: int Protection = 0;
+"26
+[; ;main.c: 26: int Protection = 0;
 [v _Protection `i ~T0 @X0 1 e ]
 [i _Protection
 -> 0 `i
 ]
-"50
-[; ;main.c: 50: int Systeme = 0;
+"27
+[; ;main.c: 27: int Systeme = 0;
 [v _Systeme `i ~T0 @X0 1 e ]
 [i _Systeme
 -> 0 `i
 ]
-"51
-[; ;main.c: 51: int Batterie = 0;
+"28
+[; ;main.c: 28: int Batterie = 0;
 [v _Batterie `i ~T0 @X0 1 e ]
 [i _Batterie
 -> 0 `i
 ]
-"52
-[; ;main.c: 52: uint8_t charge_LSB = 0;
+"29
+[; ;main.c: 29: uint8_t charge_LSB = 0;
 [v _charge_LSB `uc ~T0 @X0 1 e ]
 [i _charge_LSB
 -> -> 0 `i `uc
 ]
-"53
-[; ;main.c: 53: uint8_t charge_MSB = 0;
+"30
+[; ;main.c: 30: uint8_t charge_MSB = 0;
 [v _charge_MSB `uc ~T0 @X0 1 e ]
 [i _charge_MSB
 -> -> 0 `i `uc
 ]
-"58
-[; ;main.c: 58: int etat = Off;
+"35
+[; ;main.c: 35: int etat = Off;
 [v _etat `i ~T0 @X0 1 e ]
 [i _etat
 -> . `E12620 2 `i
 ]
-"60
-[; ;main.c: 60: void timer_1s(void) {
+"37
+[; ;main.c: 37: void timer_1s(void) {
 [v _timer_1s `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer_1s ]
 [f ]
-"61
-[; ;main.c: 61:     flag_timer_1s = 1;
+"38
+[; ;main.c: 38:     flag_timer_1s = 1;
 [e = _flag_timer_1s -> -> 1 `i `uc ]
-"62
-[; ;main.c: 62: }
+"39
+[; ;main.c: 39: }
 [e :UE 1532 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"64
-[; ;main.c: 64: void main(void) {
+"41
+[; ;main.c: 41: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"66
-[; ;main.c: 66:     SYSTEM_Initialize();
+"43
+[; ;main.c: 43:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"68
-[; ;main.c: 68:     TMR1_SetInterruptHandler(timer_1s);
+"45
+[; ;main.c: 45:     TMR1_SetInterruptHandler(timer_1s);
 [e ( _TMR1_SetInterruptHandler (1 &U _timer_1s ]
-"70
-[; ;main.c: 70:     (INTCONbits.GIE = 1);
+"47
+[; ;main.c: 47:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"73
-[; ;main.c: 73:     (INTCONbits.PEIE = 1);
+"50
+[; ;main.c: 50:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:     RXB0CON = 0x60;
+"52
+[; ;main.c: 52:     RXB0CON = 0x60;
 [e = _RXB0CON -> -> 96 `i `uc ]
-"83
-[; ;main.c: 83:     uCAN_MSG txCan;
+"59
+[; ;main.c: 59:     uCAN_MSG txCan;
 [v _txCan `S1530 ~T0 @X0 1 a ]
-"84
-[; ;main.c: 84:     uCAN_MSG rxCan;
+"60
+[; ;main.c: 60:     uCAN_MSG rxCan;
 [v _rxCan `S1530 ~T0 @X0 1 a ]
-"86
-[; ;main.c: 86:     txCan.frame.id = 0x1A0;
+"62
+[; ;main.c: 62:     txCan.frame.id = 0x1A0;
 [e = . . _txCan 0 1 -> -> -> 416 `i `l `ul ]
-"87
-[; ;main.c: 87:     txCan.frame.dlc = 3;
+"63
+[; ;main.c: 63:     txCan.frame.dlc = 3;
 [e = . . _txCan 0 2 -> -> 3 `i `uc ]
-"88
-[; ;main.c: 88:     txCan.frame.data0 = 0;
+"64
+[; ;main.c: 64:     txCan.frame.data0 = 0;
 [e = . . _txCan 0 3 -> -> 0 `i `uc ]
-"90
-[; ;main.c: 90:     rxCan.frame.id = 0;
+"66
+[; ;main.c: 66:     rxCan.frame.id = 0;
 [e = . . _rxCan 0 1 -> -> -> 0 `i `l `ul ]
-"91
-[; ;main.c: 91:     rxCan.frame.dlc = 0;
+"67
+[; ;main.c: 67:     rxCan.frame.dlc = 0;
 [e = . . _rxCan 0 2 -> -> 0 `i `uc ]
-"92
-[; ;main.c: 92:     rxCan.frame.data0 = 0;
+"68
+[; ;main.c: 68:     rxCan.frame.data0 = 0;
 [e = . . _rxCan 0 3 -> -> 0 `i `uc ]
-"94
-[; ;main.c: 94:     while (1) {
+"70
+[; ;main.c: 70:     while (1) {
 [e :U 1535 ]
 {
-"97
-[; ;main.c: 97:         if (CAN_receive(&rxCan) >= 1) {
+"72
+[; ;main.c: 72:         if (CAN_receive(&rxCan) >= 1) {
 [e $ ! >= -> ( _CAN_receive (1 &U _rxCan `i -> 1 `i 1537  ]
 {
-"98
-[; ;main.c: 98:             if (rxCan.frame.id == 0x100) {
+"73
+[; ;main.c: 73:             if (rxCan.frame.id == 0x100) {
 [e $ ! == . . _rxCan 0 1 -> -> -> 256 `i `l `ul 1538  ]
 {
-"99
-[; ;main.c: 99:                 if (rxCan.frame.data0 != 0x00) {
+"74
+[; ;main.c: 74:                 if (rxCan.frame.data0 != 0x00) {
 [e $ ! != -> . . _rxCan 0 3 `i -> 0 `i 1539  ]
 {
-"100
-[; ;main.c: 100:                     Protection = 1;
+"75
+[; ;main.c: 75:                     Protection = 1;
 [e = _Protection -> 1 `i ]
-"101
-[; ;main.c: 101:                 } else {
+"76
+[; ;main.c: 76:                 } else {
 }
 [e $U 1540  ]
 [e :U 1539 ]
 {
-"102
-[; ;main.c: 102:                     Protection = 0;
+"77
+[; ;main.c: 77:                     Protection = 0;
 [e = _Protection -> 0 `i ]
-"103
-[; ;main.c: 103:                 }
+"78
+[; ;main.c: 78:                 }
 }
 [e :U 1540 ]
-"104
-[; ;main.c: 104:             } else if (rxCan.frame.id == 0x120) {
+"79
+[; ;main.c: 79:             } else if (rxCan.frame.id == 0x120) {
 }
 [e $U 1541  ]
 [e :U 1538 ]
 [e $ ! == . . _rxCan 0 1 -> -> -> 288 `i `l `ul 1542  ]
 {
-"105
-[; ;main.c: 105:                 if (rxCan.frame.data0 != 0x00) {
+"80
+[; ;main.c: 80:                 if (rxCan.frame.data0 != 0x00) {
 [e $ ! != -> . . _rxCan 0 3 `i -> 0 `i 1543  ]
 {
-"106
-[; ;main.c: 106:                     Systeme = 0;
+"81
+[; ;main.c: 81:                     Systeme = 0;
 [e = _Systeme -> 0 `i ]
-"107
-[; ;main.c: 107:                 } else {
+"82
+[; ;main.c: 82:                 } else {
 }
 [e $U 1544  ]
 [e :U 1543 ]
 {
-"108
-[; ;main.c: 108:                     Systeme = 1;
+"83
+[; ;main.c: 83:                     Systeme = 1;
 [e = _Systeme -> 1 `i ]
-"109
-[; ;main.c: 109:                 }
+"84
+[; ;main.c: 84:                 }
 }
 [e :U 1544 ]
-"110
-[; ;main.c: 110:             } else if (rxCan.frame.id == 0x180) {
+"85
+[; ;main.c: 85:             } else if (rxCan.frame.id == 0x180) {
 }
 [e $U 1545  ]
 [e :U 1542 ]
 [e $ ! == . . _rxCan 0 1 -> -> -> 384 `i `l `ul 1546  ]
 {
-"111
-[; ;main.c: 111:                 uint8_t batterie = rxCan.frame.data0;
+"86
+[; ;main.c: 86:                 uint8_t batterie = rxCan.frame.data0;
 [v _batterie `uc ~T0 @X0 1 a ]
 [e = _batterie . . _rxCan 0 3 ]
-"112
-[; ;main.c: 112:                 if (batterie <= 2) {
+"87
+[; ;main.c: 87:                 if (batterie <= 2) {
 [e $ ! <= -> _batterie `i -> 2 `i 1547  ]
 {
-"113
-[; ;main.c: 113:                     Batterie = 0;
+"88
+[; ;main.c: 88:                     Batterie = 0;
 [e = _Batterie -> 0 `i ]
-"114
-[; ;main.c: 114:                 } else {
+"89
+[; ;main.c: 89:                 } else {
 }
 [e $U 1548  ]
 [e :U 1547 ]
 {
-"115
-[; ;main.c: 115:                     Batterie = 1;
+"90
+[; ;main.c: 90:                     Batterie = 1;
 [e = _Batterie -> 1 `i ]
-"116
-[; ;main.c: 116:                 }
+"91
+[; ;main.c: 91:                 }
 }
 [e :U 1548 ]
-"117
-[; ;main.c: 117:             }
+"92
+[; ;main.c: 92:             }
 }
 [e :U 1546 ]
 [e :U 1545 ]
 [e :U 1541 ]
-"118
-[; ;main.c: 118:         }
+"93
+[; ;main.c: 93:         }
 }
 [e :U 1537 ]
-"121
-[; ;main.c: 121:         if (PORTAbits.RA0 == 1) {
+"95
+[; ;main.c: 95:         if (PORTAbits.RA0 == 1) {
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 1 `i 1549  ]
 {
-"122
-[; ;main.c: 122:             Switch = 0;
+"96
+[; ;main.c: 96:             Switch = 0;
 [e = _Switch -> 0 `i ]
-"123
-[; ;main.c: 123:         } else {
+"97
+[; ;main.c: 97:         } else {
 }
 [e $U 1550  ]
 [e :U 1549 ]
 {
-"124
-[; ;main.c: 124:             Switch = 1;
+"98
+[; ;main.c: 98:             Switch = 1;
 [e = _Switch -> 1 `i ]
-"125
-[; ;main.c: 125:         }
+"99
+[; ;main.c: 99:         }
 }
 [e :U 1550 ]
-"128
-[; ;main.c: 128:         switch (etat) {
+"102
+[; ;main.c: 102:         switch (etat) {
 [e $U 1552  ]
 {
-"129
-[; ;main.c: 129:             case On:
+"103
+[; ;main.c: 103:             case On:
 [e :U 1553 ]
-"131
-[; ;main.c: 131:                 do { LATCbits.LATC2 = 0; } while(0);
+"105
+[; ;main.c: 105:                 do { LATCbits.LATC2 = 0; } while(0);
 [e :U 1556 ]
 {
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 }
 [e :U 1555 ]
-"132
-[; ;main.c: 132:                 do { LATCbits.LATC3 = 1; } while(0);
+"106
+[; ;main.c: 106:                 do { LATCbits.LATC3 = 1; } while(0);
 [e :U 1559 ]
 {
 [e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
 }
 [e :U 1558 ]
-"135
-[; ;main.c: 135:                 if (flag_timer_1s == 1) {
+"109
+[; ;main.c: 109:                 if (flag_timer_1s == 1) {
 [e $ ! == -> _flag_timer_1s `i -> 1 `i 1560  ]
 {
-"136
-[; ;main.c: 136:                     txCan.frame.data0 = 0xFF;
+"110
+[; ;main.c: 110:                     txCan.frame.data0 = 0xFF;
 [e = . . _txCan 0 3 -> -> 255 `i `uc ]
-"137
-[; ;main.c: 137:                     uint32_t charge = ADC_GetConversion(channel_AN8);
+"111
+[; ;main.c: 111:                     uint32_t charge = ADC_GetConversion(channel_AN8);
 [v _charge `ul ~T0 @X0 1 a ]
 [e = _charge -> ( _ADC_GetConversion (1 . `E12536 4 `ul ]
-"138
-[; ;main.c: 138:                     charge = (charge * 300);
+"112
+[; ;main.c: 112:                     charge = (charge * 300);
 [e = _charge * _charge -> -> -> 300 `i `l `ul ]
-"139
-[; ;main.c: 139:                     charge = (charge / 4096);
+"113
+[; ;main.c: 113:                     charge = (charge / 4096);
 [e = _charge / _charge -> -> -> 4096 `i `l `ul ]
-"140
-[; ;main.c: 140:                     txCan.frame.data1 = charge >> 8;
+"114
+[; ;main.c: 114:                     txCan.frame.data1 = charge >> 8;
 [e = . . _txCan 0 4 -> >> _charge -> 8 `i `uc ]
-"141
-[; ;main.c: 141:                     txCan.frame.data2 = charge;
+"115
+[; ;main.c: 115:                     txCan.frame.data2 = charge;
 [e = . . _txCan 0 5 -> _charge `uc ]
-"142
-[; ;main.c: 142:                     CAN_transmit(&txCan);
+"116
+[; ;main.c: 116:                     CAN_transmit(&txCan);
 [e ( _CAN_transmit (1 &U _txCan ]
-"143
-[; ;main.c: 143:                     flag_timer_1s = 0;
+"117
+[; ;main.c: 117:                     flag_timer_1s = 0;
 [e = _flag_timer_1s -> -> 0 `i `uc ]
-"144
-[; ;main.c: 144:                 }
+"118
+[; ;main.c: 118:                 }
 }
 [e :U 1560 ]
-"147
-[; ;main.c: 147:                 if (Protection == 1 || Systeme == 0) {
+"121
+[; ;main.c: 121:                 if (Protection == 1 || Systeme == 0) {
 [e $ ! || == _Protection -> 1 `i == _Systeme -> 0 `i 1561  ]
 {
-"148
-[; ;main.c: 148:                     etat = Off;
+"122
+[; ;main.c: 122:                     etat = Off;
 [e = _etat -> . `E12620 2 `i ]
-"149
-[; ;main.c: 149:                 } else if (Switch == 0 || Batterie == 0) {
+"123
+[; ;main.c: 123:                 } else if (Switch == 0 || Batterie == 0) {
 }
 [e $U 1562  ]
 [e :U 1561 ]
 [e $ ! || == _Switch -> 0 `i == _Batterie -> 0 `i 1563  ]
 {
-"150
-[; ;main.c: 150:                     etat = OFF_Passif;
+"124
+[; ;main.c: 124:                     etat = OFF_Passif;
 [e = _etat -> . `E12620 0 `i ]
-"151
-[; ;main.c: 151:                 }
+"125
+[; ;main.c: 125:                 }
 }
 [e :U 1563 ]
 [e :U 1562 ]
-"152
-[; ;main.c: 152:                 break;
+"126
+[; ;main.c: 126:                 break;
 [e $U 1551  ]
-"154
-[; ;main.c: 154:             case Off:
+"128
+[; ;main.c: 128:             case Off:
 [e :U 1564 ]
-"156
-[; ;main.c: 156:                 do { LATCbits.LATC2 = 1; } while(0);
+"130
+[; ;main.c: 130:                 do { LATCbits.LATC2 = 1; } while(0);
 [e :U 1567 ]
 {
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 }
 [e :U 1566 ]
-"157
-[; ;main.c: 157:                 do { LATCbits.LATC3 = 0; } while(0);
+"131
+[; ;main.c: 131:                 do { LATCbits.LATC3 = 0; } while(0);
 [e :U 1570 ]
 {
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 1569 ]
-"159
-[; ;main.c: 159:                 if (Protection == 0 && Systeme == 1) {
+"133
+[; ;main.c: 133:                 if (Protection == 0 && Systeme == 1) {
 [e $ ! && == _Protection -> 0 `i == _Systeme -> 1 `i 1571  ]
 {
-"160
-[; ;main.c: 160:                     if (Switch == 1 && Batterie == 1) {
+"134
+[; ;main.c: 134:                     if (Switch == 1 && Batterie == 1) {
 [e $ ! && == _Switch -> 1 `i == _Batterie -> 1 `i 1572  ]
 {
-"161
-[; ;main.c: 161:                         etat = On;
+"135
+[; ;main.c: 135:                         etat = On;
 [e = _etat -> . `E12620 1 `i ]
-"162
-[; ;main.c: 162:                     } else {
+"136
+[; ;main.c: 136:                     } else {
 }
 [e $U 1573  ]
 [e :U 1572 ]
 {
-"163
-[; ;main.c: 163:                         etat = OFF_Passif;
+"137
+[; ;main.c: 137:                         etat = OFF_Passif;
 [e = _etat -> . `E12620 0 `i ]
-"164
-[; ;main.c: 164:                     }
+"138
+[; ;main.c: 138:                     }
 }
 [e :U 1573 ]
-"165
-[; ;main.c: 165:                 }
+"139
+[; ;main.c: 139:                 }
 }
 [e :U 1571 ]
-"166
-[; ;main.c: 166:                 break;
+"140
+[; ;main.c: 140:                 break;
 [e $U 1551  ]
-"168
-[; ;main.c: 168:             case OFF_Passif:
+"142
+[; ;main.c: 142:             case OFF_Passif:
 [e :U 1574 ]
-"170
-[; ;main.c: 170:                 do { LATCbits.LATC2 = 1; } while(0);
+"144
+[; ;main.c: 144:                 do { LATCbits.LATC2 = 1; } while(0);
 [e :U 1577 ]
 {
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 }
 [e :U 1576 ]
-"171
-[; ;main.c: 171:                 do { LATCbits.LATC3 = 0; } while(0);
+"145
+[; ;main.c: 145:                 do { LATCbits.LATC3 = 0; } while(0);
 [e :U 1580 ]
 {
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 1579 ]
-"173
-[; ;main.c: 173:                 if (flag_timer_1s == 1) {
+"147
+[; ;main.c: 147:                 if (flag_timer_1s == 1) {
 [e $ ! == -> _flag_timer_1s `i -> 1 `i 1581  ]
 {
-"174
-[; ;main.c: 174:                     txCan.frame.data0 = 0x00;
+"148
+[; ;main.c: 148:                     txCan.frame.data0 = 0x00;
 [e = . . _txCan 0 3 -> -> 0 `i `uc ]
-"175
-[; ;main.c: 175:                     CAN_transmit(&txCan);
+"149
+[; ;main.c: 149:                     CAN_transmit(&txCan);
 [e ( _CAN_transmit (1 &U _txCan ]
-"176
-[; ;main.c: 176:                     flag_timer_1s = 0;
+"150
+[; ;main.c: 150:                     flag_timer_1s = 0;
 [e = _flag_timer_1s -> -> 0 `i `uc ]
-"177
-[; ;main.c: 177:                 }
+"151
+[; ;main.c: 151:                 }
 }
 [e :U 1581 ]
-"179
-[; ;main.c: 179:                 if (Protection == 1 || Systeme == 0) {
+"153
+[; ;main.c: 153:                 if (Protection == 1 || Systeme == 0) {
 [e $ ! || == _Protection -> 1 `i == _Systeme -> 0 `i 1582  ]
 {
-"180
-[; ;main.c: 180:                     etat = Off;
+"154
+[; ;main.c: 154:                     etat = Off;
 [e = _etat -> . `E12620 2 `i ]
-"181
-[; ;main.c: 181:                 } else if (Switch == 1 && Batterie == 1) {
+"155
+[; ;main.c: 155:                 } else if (Switch == 1 && Batterie == 1) {
 }
 [e $U 1583  ]
 [e :U 1582 ]
 [e $ ! && == _Switch -> 1 `i == _Batterie -> 1 `i 1584  ]
 {
-"182
-[; ;main.c: 182:                     etat = On;
+"156
+[; ;main.c: 156:                     etat = On;
 [e = _etat -> . `E12620 1 `i ]
-"183
-[; ;main.c: 183:                 }
+"157
+[; ;main.c: 157:                 }
 }
 [e :U 1584 ]
 [e :U 1583 ]
-"184
-[; ;main.c: 184:                 break;
+"158
+[; ;main.c: 158:                 break;
 [e $U 1551  ]
-"185
-[; ;main.c: 185:         }
+"159
+[; ;main.c: 159:         }
 }
 [e $U 1551  ]
 [e :U 1552 ]
@@ -1881,13 +1881,13 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ . `E12620 0 1574
  1551 ]
 [e :U 1551 ]
-"186
-[; ;main.c: 186:     }
+"160
+[; ;main.c: 160:     }
 }
 [e :U 1534 ]
 [e $U 1535  ]
 [e :U 1536 ]
-"187
-[; ;main.c: 187: }
+"161
+[; ;main.c: 161: }
 [e :UE 1533 ]
 }
