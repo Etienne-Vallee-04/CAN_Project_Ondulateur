@@ -20447,6 +20447,7 @@ int Systeme = 0;
 int Batterie = 0;
 uint8_t charge_LSB = 0;
 uint8_t charge_MSB = 0;
+int flag_5s = 0;
 
 enum etat {
     OFF_Passif, On, Off
@@ -20489,6 +20490,7 @@ void main(void) {
     while (1) {
 
         if (CAN_receive(&rxCan) >= 1) {
+            flag_5s = 0;
             if (rxCan.frame.id == 0x100) {
                 if (rxCan.frame.data0 != 0x00) {
                     Protection = 1;
@@ -20508,6 +20510,14 @@ void main(void) {
                 } else {
                     Batterie = 1;
                 }
+            }
+        } else {
+            if (flag_timer_1s == 1) {
+                flag_5s++;
+                if (flag_5s == 5) {
+                    etat = Off;
+                }
+                flag_timer_1s = 0;
             }
         }
 

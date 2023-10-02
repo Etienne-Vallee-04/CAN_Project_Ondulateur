@@ -28,6 +28,7 @@ int Systeme = 0; // État du Système de l'Interface
 int Batterie = 0; // État de la Batterie
 uint8_t charge_LSB = 0; //niveau de la charge: bit lsb
 uint8_t charge_MSB = 0; // niveau de la charge: bit msb
+int flag_5s = 0; //variable après 5 secondes
 
 enum etat {
     OFF_Passif, On, Off //etat du noeud
@@ -50,9 +51,9 @@ void main(void) {
     INTERRUPT_PeripheralInterruptEnable();
 
     RXB0CON = 0x60; // Accept all messages
-    
-    //    RXM0SIDH = 0x07 //mask
-    //    RXM0SIDL = 0x2F
+
+    //    RXM0SIDH = 0x03 //mask
+    //    RXM0SIDL = 0x5F
     //    RXF0SIDH = 0x01 //filtre
     //    RXF0SIDL = 0x00
 
@@ -70,6 +71,7 @@ void main(void) {
     while (1) {
         //recevoir commande et messsage des autres noeuds
         if (CAN_receive(&rxCan) >= 1) {
+            flag_5s = 0;
             if (rxCan.frame.id == 0x100) {//Protection donnée
                 if (rxCan.frame.data0 != 0x00) {//protection
                     Protection = 1;
@@ -89,6 +91,14 @@ void main(void) {
                 } else {
                     Batterie = 1; //batterie morte
                 }
+            }
+        } else {
+            if (flag_timer_1s == 1) {
+                flag_5s++;
+                if (flag_5s == 5) {
+                    etat = Off;
+                }
+                flag_timer_1s = 0;
             }
         }
         //etat de l'onduleur sur la switch
@@ -138,7 +148,7 @@ void main(void) {
                     }
                 }
                 break;
-                
+
             case OFF_Passif://système qui transmet et en off
                 //afficher leds
                 IO_RC2_SetHigh(); //led rouge allumée
