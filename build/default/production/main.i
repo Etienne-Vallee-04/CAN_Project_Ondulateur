@@ -20449,7 +20449,7 @@ uint8_t charge_LSB = 0;
 uint8_t charge_MSB = 0;
 
 enum etat {
-    OffSwitch, On, Off
+    OFF_Passif, On, Off
 };
 int etat = Off;
 
@@ -20507,8 +20507,6 @@ void main(void) {
                 uint8_t batterie = rxCan.frame.data0;
                 if (batterie <= 2) {
                     Batterie = 0;
-                } else if (batterie <= 20 || batterie >= 2) {
-                    Batterie = 2;
                 } else {
                     Batterie = 1;
                 }
@@ -20527,11 +20525,8 @@ void main(void) {
             case On:
 
                 do { LATCbits.LATC2 = 0; } while(0);
-                if (Batterie == 2) {
-                    do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0);
-                }else {
-                    do { LATCbits.LATC3 = 1; } while(0);
-                }
+                do { LATCbits.LATC3 = 1; } while(0);
+
 
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0xFF;
@@ -20545,10 +20540,10 @@ void main(void) {
                 }
 
 
-                if (Protection == 1 || Systeme == 0 || Batterie == 0) {
+                if (Protection == 1 || Systeme == 0) {
                     etat = Off;
-                } else if (Switch == 0) {
-                    etat = OffSwitch;
+                } else if (Switch == 0 || Batterie == 0) {
+                    etat = OFF_Passif;
                 }
                 break;
 
@@ -20557,16 +20552,16 @@ void main(void) {
                 do { LATCbits.LATC2 = 1; } while(0);
                 do { LATCbits.LATC3 = 0; } while(0);
 
-                if (Protection == 0 && Systeme == 1 && Batterie == 1) {
-                    if (Switch == 1) {
+                if (Protection == 0 && Systeme == 1) {
+                    if (Switch == 1 && Batterie == 1) {
                         etat = On;
                     } else {
-                        etat = OffSwitch;
+                        etat = OFF_Passif;
                     }
                 }
                 break;
 
-            case OffSwitch:
+            case OFF_Passif:
 
                 do { LATCbits.LATC2 = 1; } while(0);
                 do { LATCbits.LATC3 = 0; } while(0);
@@ -20577,9 +20572,9 @@ void main(void) {
                     flag_timer_1s = 0;
                 }
 
-                if (Protection == 1 || Systeme == 0 || Batterie == 0) {
+                if (Protection == 1 || Systeme == 0) {
                     etat = Off;
-                } else if (Switch == 1) {
+                } else if (Switch == 1 && Batterie == 1) {
                     etat = On;
                 }
                 break;

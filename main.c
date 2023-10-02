@@ -53,7 +53,7 @@ uint8_t charge_LSB = 0; //niveau de la charge: bit lsb
 uint8_t charge_MSB = 0; // niveau de la charge: bit msb
 
 enum etat {
-    OffSwitch, On, Off //etat du noeud
+    OFF_Passif, On, Off //etat du noeud
 };
 int etat = Off;
 
@@ -111,8 +111,6 @@ void main(void) {
                 uint8_t batterie = rxCan.frame.data0;
                 if (batterie <= 2) {
                     Batterie = 0; // batterie chargée
-                } else if (batterie <= 20 || batterie >= 2) {
-                    Batterie = 2;//niveau de batterie faible
                 } else {
                     Batterie = 1; //batterie morte
                 }
@@ -131,11 +129,8 @@ void main(void) {
             case On://transmisssion avec les autres noeuds
                 //afficher leds
                 IO_RC2_SetLow(); //led verte allumée
-                if (Batterie == 2) {//avertissement batterie faible
-                    IO_RC3_Toggle();
-                }else {
-                    IO_RC3_SetHigh();
-                }
+                IO_RC3_SetHigh();
+
                 //transmission à chaque seconde
                 if (flag_timer_1s == 1) { // à chaque seconde
                     txCan.frame.data0 = 0xFF; //ON
@@ -149,10 +144,10 @@ void main(void) {
                 }
 
                 //conditions de changement d'état
-                if (Protection == 1 || Systeme == 0 || Batterie == 0) {//Off par les noeud
+                if (Protection == 1 || Systeme == 0) {//Off par les noeud
                     etat = Off;
-                } else if (Switch == 0) {// off par la switch
-                    etat = OffSwitch;
+                } else if (Switch == 0 || Batterie == 0) {// off par la switch
+                    etat = OFF_Passif;
                 }
                 break;
 
@@ -161,16 +156,16 @@ void main(void) {
                 IO_RC2_SetHigh(); //led rouge allumée
                 IO_RC3_SetLow();
                 //conditions de changement d'état
-                if (Protection == 0 && Systeme == 1 && Batterie == 1) {//Off par les noeud
-                    if (Switch == 1) { //l'état selon l'intérrupteur
+                if (Protection == 0 && Systeme == 1) {//Off par les noeud
+                    if (Switch == 1 && Batterie == 1) { //l'état selon l'intérrupteur
                         etat = On;
                     } else {
-                        etat = OffSwitch;
+                        etat = OFF_Passif;
                     }
                 }
                 break;
                 
-            case OffSwitch://impact de la switch
+            case OFF_Passif://système qui transmet et en off
                 //afficher leds
                 IO_RC2_SetHigh(); //led rouge allumée
                 IO_RC3_SetLow();
@@ -181,9 +176,9 @@ void main(void) {
                     flag_timer_1s = 0;
                 }
                 //conditions de changement d'état
-                if (Protection == 1 || Systeme == 0 || Batterie == 0) {//Off par les noeud
+                if (Protection == 1 || Systeme == 0) {//Off par les noeud
                     etat = Off;
-                } else if (Switch == 1) {// off par la switch
+                } else if (Switch == 1 && Batterie == 1) {// off par la switch
                     etat = On;
                 }
                 break;

@@ -13,11 +13,11 @@ channel_AN8 8
 ]
 "58 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [e E12620 etat `uc
-OffSwitch 0
+OFF_Passif 0
 On 1
 Off 2
 ]
-"142
+"137
 [e E12536 . `uc
 channel_CTMU 28
 channel_Temp_diode 29
@@ -931,7 +931,7 @@ channel_AN8 8
 "64 C:\Users\e2134485\OneDrive - Collège de Maisonneuve\onduleur_projet.X\CAN_Project_Ondulateur\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"142
+"137
 [v main@charge charge `ul  1 a 4 1 ]
 "111
 [v main@batterie batterie `uc  1 a 1 0 ]
@@ -941,7 +941,7 @@ channel_AN8 8
 [v main@rxCan rxCan `S552  1 a 14 19 ]
 "83
 [v main@txCan txCan `S552  1 a 14 5 ]
-"192
+"187
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
