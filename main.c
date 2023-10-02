@@ -44,20 +44,20 @@
 #include "mcc_generated_files/mcc.h"
 
 //Flag pour le timer
-uint8_t flag_timer_1s = 0;
-int Switch = 0;
-int Protection = 0;
-int Systeme = 0;
-int Batterie = 0;
-uint8_t charge_LSB = 0;
-uint8_t charge_MSB = 0;
+uint8_t flag_timer_1s = 0; //fréquence de transmission
+int Switch = 0; // Etat de l'Intérrupteur
+int Protection = 0; // État du Système de Protection
+int Systeme = 0; // État du Système de l'Interface
+int Batterie = 0; // État de la Batterie
+uint8_t charge_LSB = 0; //niveau de la charge: bit lsb
+uint8_t charge_MSB = 0; // niveau de la charge: bit msb
 
 enum etat {
-    OffSwitch, On, Off
+    OffSwitch, On, Off //etat du noeud
 };
 int etat = Off;
 
-void timer_1s(void) {
+void timer_1s(void) { //à chaque seconde un flag est activée
     flag_timer_1s = 1;
 }
 
@@ -65,7 +65,7 @@ void main(void) {
     // Initialize the device
     SYSTEM_Initialize();
 
-    TMR1_SetInterruptHandler(timer_1s);
+    TMR1_SetInterruptHandler(timer_1s); // intéruption à chaque seconde 
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
 
@@ -90,15 +90,6 @@ void main(void) {
     rxCan.frame.id = 0; //CAN Reçu
     rxCan.frame.dlc = 0;
     rxCan.frame.data0 = 0;
-
-    EUSART1_Write(0xFE); //initialisation de l'écran
-    EUSART1_Write(0x41);
-    EUSART1_Write(0xFE);
-    EUSART1_Write(0x51);
-    EUSART1_Write(0xFE);
-    EUSART1_Write(0x46);
-    printf("CAN RECEIVER");
-    __delay_ms(1000);
 
     while (1) {
 
@@ -146,14 +137,14 @@ void main(void) {
                     IO_RC3_SetHigh();
                 }
                 //transmission à chaque seconde
-                if (flag_timer_1s == 1) {
+                if (flag_timer_1s == 1) { // à chaque seconde
                     txCan.frame.data0 = 0xFF; //ON
                     uint32_t charge = ADC_GetConversion(channel_AN8); //convertir la valeur de la charge
                     charge = (charge * 300); //mettre la valeur de l'adc de 0 à 300
                     charge = (charge / 4096);
-                    txCan.frame.data1 = charge >> 8;
-                    txCan.frame.data2 = charge; //
-                    CAN_transmit(&txCan);
+                    txCan.frame.data1 = charge >> 8; //metttre la valeur de la charge dans les variables
+                    txCan.frame.data2 = charge;
+                    CAN_transmit(&txCan); //transimission des données vers l'interface
                     flag_timer_1s = 0;
                 }
 
@@ -171,7 +162,7 @@ void main(void) {
                 IO_RC3_SetLow();
                 //conditions de changement d'état
                 if (Protection == 0 && Systeme == 1 && Batterie == 1) {//Off par les noeud
-                    if (Switch == 1) {
+                    if (Switch == 1) { //l'état selon l'intérrupteur
                         etat = On;
                     } else {
                         etat = OffSwitch;
@@ -186,7 +177,7 @@ void main(void) {
                 //envoie de l'état
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0x00; //OFF
-                    CAN_transmit(&txCan);
+                    CAN_transmit(&txCan); // transmission des données vers l'interface
                     flag_timer_1s = 0;
                 }
                 //conditions de changement d'état

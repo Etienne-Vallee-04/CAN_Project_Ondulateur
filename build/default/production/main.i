@@ -20474,6 +20474,8 @@ void main(void) {
 
 
 
+
+
     uCAN_MSG txCan;
     uCAN_MSG rxCan;
 
@@ -20484,15 +20486,6 @@ void main(void) {
     rxCan.frame.id = 0;
     rxCan.frame.dlc = 0;
     rxCan.frame.data0 = 0;
-
-    EUSART1_Write(0xFE);
-    EUSART1_Write(0x41);
-    EUSART1_Write(0xFE);
-    EUSART1_Write(0x51);
-    EUSART1_Write(0xFE);
-    EUSART1_Write(0x46);
-    printf("CAN RECEIVER");
-    _delay((unsigned long)((1000)*(20000000/4000.0)));
 
     while (1) {
 
@@ -20532,12 +20525,14 @@ void main(void) {
 
         switch (etat) {
             case On:
+
                 do { LATCbits.LATC2 = 0; } while(0);
                 if (Batterie == 2) {
                     do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0);
                 }else {
                     do { LATCbits.LATC3 = 1; } while(0);
                 }
+
                 if (flag_timer_1s == 1) {
                     txCan.frame.data0 = 0xFF;
                     uint32_t charge = ADC_GetConversion(channel_AN8);
@@ -20558,6 +20553,7 @@ void main(void) {
                 break;
 
             case Off:
+
                 do { LATCbits.LATC2 = 1; } while(0);
                 do { LATCbits.LATC3 = 0; } while(0);
 
@@ -20569,7 +20565,9 @@ void main(void) {
                     }
                 }
                 break;
+
             case OffSwitch:
+
                 do { LATCbits.LATC2 = 1; } while(0);
                 do { LATCbits.LATC3 = 0; } while(0);
 
